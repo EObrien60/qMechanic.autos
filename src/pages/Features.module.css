@@ -1,0 +1,251 @@
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.sectionTag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-4);
+}
+
+/* Hero */
+.hero {
+  padding: var(--space-20) 0 var(--space-16);
+  text-align: center;
+}
+
+.hero h1 {
+  max-width: 700px;
+  margin: 0 auto var(--space-6);
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Features */
+.features {
+  padding: var(--space-16) 0;
+}
+
+.featureRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+  padding: var(--space-16) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.featureRow:last-child {
+  border-bottom: none;
+}
+
+.featureRow.reversed {
+  direction: rtl;
+}
+
+.featureRow.reversed > * {
+  direction: ltr;
+}
+
+.featureContent {
+  max-width: 500px;
+}
+
+.featureIcon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-subtle);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-6);
+  color: var(--color-accent);
+}
+
+.featureIcon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.featureContent h2 {
+  font-size: 1.75rem;
+  margin-bottom: var(--space-4);
+}
+
+.featureDescription {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+  line-height: 1.7;
+}
+
+.featureList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.featureList li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  color: var(--color-text-secondary);
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 50%;
+  color: var(--color-success);
+  margin-top: 2px;
+}
+
+.checkIcon svg {
+  width: 12px;
+  height: 12px;
+}
+
+.featureVisual {
+  display: flex;
+  justify-content: center;
+}
+
+.visualPlaceholder {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 4/3;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visualIcon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-border);
+}
+
+.visualIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Integrations */
+.integrations {
+  padding: var(--space-24) 0;
+  background: var(--color-bg-secondary);
+  text-align: center;
+}
+
+.integrations h2 {
+  margin-bottom: var(--space-4);
+}
+
+.integrationsSubtitle {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-12);
+}
+
+.integrationGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-4);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.integrationCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-4);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: all var(--transition-base);
+}
+
+.integrationCard:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.integrationIcon {
+  font-size: 1.5rem;
+}
+
+/* CTA */
+.cta {
+  padding: var(--space-24) 0;
+}
+
+.ctaCard {
+  text-align: center;
+  padding: var(--space-16);
+  background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-tertiary));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.ctaCard h2 {
+  margin-bottom: var(--space-3);
+}
+
+.ctaCard p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-8);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .featureRow {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .featureRow.reversed {
+    direction: ltr;
+  }
+
+  .featureContent {
+    max-width: none;
+  }
+
+  .integrationGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .integrationGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
