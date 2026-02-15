@@ -74,10 +74,10 @@ export default function Home() {
       .then(res => res.json())
       .then(data => {
         if (data.flags) {
-          const enabled = new Set(
-            data.flags.filter((f: { enabled: boolean }) => f.enabled).map((f: { id: string }) => f.id)
-          )
-          setEnabledIds(enabled)
+          const ids: string[] = data.flags
+            .filter((f: { enabled: boolean }) => f.enabled)
+            .map((f: { id: string }) => f.id)
+          setEnabledIds(new Set(ids))
         }
       })
       .catch(() => {})
