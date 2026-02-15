@@ -11,6 +11,7 @@ export default function Header() {
     { path: '/features', label: 'Features' },
     { path: '/pricing', label: 'Pricing' },
     { path: '/contact', label: 'Contact' },
+    { path: '/support', label: 'Support' },
   ]
 
   return (

@@ -25,15 +25,25 @@ interface PricingTier {
   cta_text: string
 }
 
+interface FeatureFlag {
+  id: string
+  page: string
+  label: string
+  enabled: boolean
+  sort_order: number
+}
+
 export default function Admin() {
   const [authenticated, setAuthenticated] = useState(false)
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
-  const [activeTab, setActiveTab] = useState<'messages' | 'pricing'>('messages')
+  const [activeTab, setActiveTab] = useState<'messages' | 'pricing' | 'flags'>('messages')
   const [messages, setMessages] = useState<Message[]>([])
   const [pricing, setPricing] = useState<PricingTier[]>([])
+  const [flags, setFlags] = useState<FeatureFlag[]>([])
   const [loading, setLoading] = useState(false)
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle')
+  const [flagSaveStatus, setFlagSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle')
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
@@ -61,14 +71,17 @@ export default function Admin() {
   const fetchData = async () => {
     setLoading(true)
     try {
-      const [messagesRes, pricingRes] = await Promise.all([
+      const [messagesRes, pricingRes, flagsRes] = await Promise.all([
         fetch('/api/admin/messages'),
         fetch('/api/pricing'),
+        fetch('/api/flags'),
       ])
       const messagesData = await messagesRes.json()
       const pricingData = await pricingRes.json()
+      const flagsData = await flagsRes.json()
       setMessages(messagesData.messages || [])
       setPricing(pricingData.tiers || getDefaultPricing())
+      setFlags(flagsData.flags || getDefaultFlags())
     } catch {
       console.error('Failed to fetch data')
     } finally {
@@ -108,6 +121,38 @@ export default function Admin() {
       cta_text: 'Contact Sales',
     },
   ]
+
+  const getDefaultFlags = (): FeatureFlag[] => [
+    { id: 'job-cards', page: 'features', label: 'Digital Job Cards', enabled: true, sort_order: 0 },
+    { id: 'inspections', page: 'features', label: 'Pre-Trip & Safety Inspections', enabled: true, sort_order: 1 },
+    { id: 'ai-invoices', page: 'features', label: 'AI Invoice Processing', enabled: true, sort_order: 2 },
+    { id: 'fleet-tracking', page: 'features', label: 'Live Fleet Tracking', enabled: true, sort_order: 3 },
+    { id: 'analytics', page: 'features', label: 'Fleet Analytics', enabled: true, sort_order: 4 },
+    { id: 'compliance', page: 'features', label: 'Compliance Management', enabled: true, sort_order: 5 },
+  ]
+
+  const toggleFlag = (id: string) => {
+    setFlags(flags.map(f => f.id === id ? { ...f, enabled: !f.enabled } : f))
+  }
+
+  const saveFlags = async () => {
+    setFlagSaveStatus('saving')
+    try {
+      const res = await fetch('/api/admin/flags', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ flags: flags.map(f => ({ id: f.id, enabled: f.enabled })) }),
+      })
+      if (res.ok) {
+        setFlagSaveStatus('saved')
+        setTimeout(() => setFlagSaveStatus('idle'), 2000)
+      } else {
+        setFlagSaveStatus('error')
+      }
+    } catch {
+      setFlagSaveStatus('error')
+    }
+  }
 
   const savePricing = async () => {
     setSaveStatus('saving')
@@ -240,11 +285,68 @@ export default function Admin() {
             </svg>
             Pricing
           </button>
+          <button
+            className={`${styles.navBtn} ${activeTab === 'flags' ? styles.active : ''}`}
+            onClick={() => setActiveTab('flags')}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2z" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            Feature Flags
+          </button>
         </nav>
 
         <main className={styles.main}>
           {loading ? (
             <div className={styles.loading}>Loading...</div>
+          ) : activeTab === 'flags' ? (
+            <div className={styles.flagsTab}>
+              <div className={styles.tabHeader}>
+                <h2>Feature Flags</h2>
+                <button
+                  onClick={saveFlags}
+                  className="btn btn-primary"
+                  disabled={flagSaveStatus === 'saving'}
+                >
+                  {flagSaveStatus === 'saving' ? 'Saving...' : flagSaveStatus === 'saved' ? 'Saved!' : 'Save Changes'}
+                </button>
+              </div>
+              <p className={styles.flagsDescription}>
+                Toggle features on or off across public pages. Disabled features will be hidden from visitors.
+              </p>
+
+              {(() => {
+                const pages = [...new Set(flags.map(f => f.page))]
+                return pages.map(page => (
+                  <div key={page} className={styles.flagGroup}>
+                    <h3 className={styles.flagGroupTitle}>
+                      {page.charAt(0).toUpperCase() + page.slice(1)} Page
+                    </h3>
+                    <div className={styles.flagList}>
+                      {flags
+                        .filter(f => f.page === page)
+                        .sort((a, b) => a.sort_order - b.sort_order)
+                        .map(flag => (
+                          <div key={flag.id} className={styles.flagRow}>
+                            <div className={styles.flagInfo}>
+                              <span className={styles.flagLabel}>{flag.label}</span>
+                              <span className={styles.flagId}>{flag.id}</span>
+                            </div>
+                            <button
+                              className={`${styles.toggle} ${flag.enabled ? styles.toggleOn : ''}`}
+                              onClick={() => toggleFlag(flag.id)}
+                              role="switch"
+                              aria-checked={flag.enabled}
+                            >
+                              <span className={styles.toggleThumb} />
+                            </button>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                ))
+              })()}
+            </div>
           ) : activeTab === 'messages' ? (
             <div className={styles.messagesTab}>
               <div className={styles.tabHeader}>

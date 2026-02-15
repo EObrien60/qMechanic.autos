@@ -115,153 +115,53 @@
   background: var(--color-border);
 }
 
-/* Dashboard Visual */
+/* App Showcase */
 .heroVisual {
   position: relative;
 }
 
-.dashboard {
-  background: var(--color-bg-secondary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
-}
-
-.dashboardHeader {
+.appShowcase {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-4);
-  padding: var(--space-3) var(--space-4);
-  background: var(--color-bg-tertiary);
-  border-bottom: 1px solid var(--color-border-subtle);
-  font-size: 0.75rem;
-  color: var(--color-text-tertiary);
+  perspective: 1000px;
 }
 
-.windowControls {
-  display: flex;
-  gap: 6px;
+.phoneFrame {
+  width: 180px;
+  flex-shrink: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0a0e1a;
+  box-shadow: var(--shadow-lg), 0 0 40px rgba(34, 211, 238, 0.06);
+  border: 1px solid var(--color-border);
+  opacity: 0.75;
+  transform: scale(0.9);
+  transition: all var(--transition-base);
 }
 
-.windowControls span {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--color-border);
+.phoneFrame:hover {
+  opacity: 1;
+  transform: scale(0.95);
 }
 
-.windowControls span:first-child { background: #ef4444; }
-.windowControls span:nth-child(2) { background: #f59e0b; }
-.windowControls span:last-child { background: #10b981; }
-
-.dashboardContent {
-  display: flex;
-  min-height: 320px;
+.phoneCenter {
+  width: 220px;
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: var(--shadow-lg), 0 0 60px rgba(34, 211, 238, 0.12);
+  z-index: 1;
 }
 
-.dashboardSidebar {
-  width: 160px;
-  padding: var(--space-4);
-  background: var(--color-bg-tertiary);
-  border-right: 1px solid var(--color-border-subtle);
+.phoneCenter:hover {
+  transform: scale(1.02);
 }
 
-.navItem {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
-  font-size: 0.8125rem;
-  color: var(--color-text-tertiary);
-  border-radius: var(--radius-md);
-  margin-bottom: var(--space-1);
-}
-
-.navItem.active {
-  background: var(--color-accent-subtle);
-  color: var(--color-accent);
-}
-
-.navIcon {
-  font-size: 0.75rem;
-}
-
-.dashboardMain {
-  flex: 1;
-  padding: var(--space-4);
-}
-
-.metricRow {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
-}
-
-.metric {
-  padding: var(--space-3);
-  background: var(--color-bg-tertiary);
-  border-radius: var(--radius-md);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-.metricLabel {
-  font-size: 0.6875rem;
-  color: var(--color-text-tertiary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.metricValue {
-  font-family: var(--font-mono);
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: var(--color-text-primary);
-}
-
-.jobList {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.jobItem {
-  display: grid;
-  grid-template-columns: 8px 70px 1fr auto;
-  align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-3);
-  background: var(--color-bg-tertiary);
-  border-radius: var(--radius-md);
-  font-size: 0.8125rem;
-}
-
-.jobStatus {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.statusProgress { background: var(--color-accent); }
-.statusWarning { background: var(--color-warning); }
-.statusComplete { background: var(--color-success); }
-
-.jobRego {
-  font-family: var(--font-mono);
-  color: var(--color-text-primary);
-}
-
-.jobType {
-  color: var(--color-text-secondary);
-}
-
-.jobTime {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--color-text-tertiary);
+.phoneFrame img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Features Section */
@@ -474,6 +374,15 @@
     margin: 0 auto;
   }
 
+  .phoneFrame {
+    width: 140px;
+    border-radius: 18px;
+  }
+
+  .phoneCenter {
+    width: 180px;
+  }
+
   .featureGrid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -516,11 +425,16 @@
     grid-template-columns: 1fr;
   }
 
-  .dashboardSidebar {
-    display: none;
+  .phoneFrame {
+    width: 110px;
+    border-radius: 14px;
   }
 
-  .logoGrid {
-    grid-template-columns: repeat(2, 1fr);
+  .phoneCenter {
+    width: 140px;
+  }
+
+  .appShowcase {
+    gap: var(--space-2);
   }
 }

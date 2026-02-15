@@ -130,7 +130,7 @@ export default function Pricing() {
                   <p>{tier.description}</p>
                 </div>
                 <div className={styles.priceBlock}>
-                  <span className={styles.currency}>$</span>
+                  <span className={styles.currency}>&euro;</span>
                   <span className={styles.price}>
                     {annual ? Math.round(tier.price_yearly / 12) : tier.price_monthly}
                   </span>
@@ -138,7 +138,7 @@ export default function Pricing() {
                 </div>
                 {annual && (
                   <p className={styles.billedAnnually}>
-                    Billed annually (${tier.price_yearly}/year)
+                    Billed annually (&euro;{tier.price_yearly}/year)
                   </p>
                 )}
                 <ul className={styles.featureList}>

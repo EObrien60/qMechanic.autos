@@ -187,6 +187,24 @@
   color: var(--color-text-secondary);
 }
 
+/* Support Section */
+.support {
+  padding: 0 0 var(--space-24);
+}
+
+.support .info h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  margin-bottom: var(--space-4);
+}
+
+.formTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .grid {

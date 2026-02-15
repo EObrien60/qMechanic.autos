@@ -54,7 +54,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4>Email</h4>
-                    <a href="mailto:hello@qmechanic.autos">hello@qmechanic.autos</a>
+                    <a href="mailto:info@obhsoftware.ie">info@obhsoftware.ie</a>
                   </div>
                 </div>
                 <div className={styles.contactMethod}>
@@ -65,7 +65,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4>Phone</h4>
-                    <a href="tel:+6498001234">+64 9 800 1234</a>
+                    <a href="tel:+353868363332">+353 (86) 836 3332</a>
                   </div>
                 </div>
                 <div className={styles.contactMethod}>
@@ -77,7 +77,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4>Office</h4>
-                    <span>Auckland, New Zealand</span>
+                    <span>Ireland</span>
                   </div>
                 </div>
               </div>
@@ -89,6 +89,7 @@ export default function Contact() {
             </div>
 
             <div className={styles.formCard}>
+              <h3 className={styles.formTitle}>Book a Demo</h3>
               {status === 'success' ? (
                 <div className={styles.successMessage}>
                   <div className={styles.successIcon}>

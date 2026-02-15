@@ -154,6 +154,33 @@
   height: 100%;
 }
 
+.phoneShowcase {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.phoneFrame {
+  width: 200px;
+  flex-shrink: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0a0e1a;
+  box-shadow: var(--shadow-lg), 0 0 40px rgba(34, 211, 238, 0.08);
+  border: 1px solid var(--color-border);
+}
+
+.phoneFrame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.phoneShowcase .phoneFrame:nth-child(2) {
+  margin-top: var(--space-8);
+}
+
 /* Integrations */
 .integrations {
   padding: var(--space-24) 0;
@@ -237,6 +264,11 @@
 
   .featureContent {
     max-width: none;
+  }
+
+  .phoneFrame {
+    width: 160px;
+    border-radius: 20px;
   }
 
   .integrationGrid {
