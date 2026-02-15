@@ -41,8 +41,8 @@ export default function Footer() {
             <h4>Company</h4>
             <Link to="/contact">Contact</Link>
             <Link to="/support">Support</Link>
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/terms">Terms of Service</a>
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms of Service</Link>
           </div>
         </div>
 

@@ -5,6 +5,8 @@ import Features from './pages/Features'
 import Pricing from './pages/Pricing'
 import Contact from './pages/Contact'
 import Support from './pages/Support'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
 import Admin from './pages/Admin'
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         <Route path="pricing" element={<Pricing />} />
         <Route path="contact" element={<Contact />} />
         <Route path="support" element={<Support />} />
+        <Route path="privacy" element={<Privacy />} />
+        <Route path="terms" element={<Terms />} />
       </Route>
       <Route path="/admin" element={<Admin />} />
     </Routes>
