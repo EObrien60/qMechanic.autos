@@ -193,43 +193,6 @@ export default function Features() {
         </div>
       </section>
 
-      {/* Integration Section */}
-      <section className={styles.integrations}>
-        <div className={styles.container}>
-          <span className={styles.sectionTag}>Integrations</span>
-          <h2>Works with your existing tools</h2>
-          <p className={styles.integrationsSubtitle}>
-            Connect qMechanic with the software you already use.
-          </p>
-          <div className={styles.integrationGrid}>
-            <div className={styles.integrationCard}>
-              <span className={styles.integrationIcon}>📊</span>
-              <span>Xero</span>
-            </div>
-            <div className={styles.integrationCard}>
-              <span className={styles.integrationIcon}>📈</span>
-              <span>MYOB</span>
-            </div>
-            <div className={styles.integrationCard}>
-              <span className={styles.integrationIcon}>🗺️</span>
-              <span>Linxio</span>
-            </div>
-            <div className={styles.integrationCard}>
-              <span className={styles.integrationIcon}>📍</span>
-              <span>EROAD</span>
-            </div>
-            <div className={styles.integrationCard}>
-              <span className={styles.integrationIcon}>⚡</span>
-              <span>Zapier</span>
-            </div>
-            <div className={styles.integrationCard}>
-              <span className={styles.integrationIcon}>🔌</span>
-              <span>REST API</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className={styles.cta}>
         <div className={styles.container}>

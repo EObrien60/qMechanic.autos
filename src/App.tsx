@@ -8,6 +8,7 @@ import Support from './pages/Support'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Admin from './pages/Admin'
+import DeleteAccount from './pages/DeleteAccount'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="support" element={<Support />} />
         <Route path="privacy" element={<Privacy />} />
         <Route path="terms" element={<Terms />} />
+        <Route path="delete-account" element={<DeleteAccount />} />
       </Route>
       <Route path="/admin" element={<Admin />} />
     </Routes>
