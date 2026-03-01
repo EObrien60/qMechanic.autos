@@ -11,6 +11,7 @@ import Admin from './pages/Admin'
 import DeleteAccount from './pages/DeleteAccount'
 import RequestAccess from './pages/RequestAccess'
 import Launch from './pages/Launch'
+import AISavings from './pages/AISavings'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="delete-account" element={<DeleteAccount />} />
         <Route path="request-access" element={<RequestAccess />} />
         <Route path="launch" element={<Launch />} />
+        <Route path="ai" element={<AISavings />} />
       </Route>
       <Route path="/admin" element={<Admin />} />
     </Routes>
