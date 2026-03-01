@@ -30,32 +30,6 @@ export async function initDb() {
     )
   `
 
-  await sql`
-    CREATE TABLE IF NOT EXISTS feature_flags (
-      id VARCHAR(100) PRIMARY KEY,
-      page VARCHAR(100) NOT NULL,
-      label VARCHAR(255) NOT NULL,
-      enabled BOOLEAN DEFAULT TRUE,
-      sort_order INTEGER DEFAULT 0,
-      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )
-  `
-
-  // Insert default feature flags if not exists
-  const existingFlags = await sql`SELECT COUNT(*) FROM feature_flags`
-  if (parseInt(existingFlags[0].count) === 0) {
-    await sql`
-      INSERT INTO feature_flags (id, page, label, enabled, sort_order)
-      VALUES
-        ('job-cards', 'features', 'Digital Job Cards', true, 0),
-        ('inspections', 'features', 'Pre-Trip & Safety Inspections', true, 1),
-        ('ai-invoices', 'features', 'AI Invoice Processing', true, 2),
-        ('fleet-tracking', 'features', 'Live Fleet Tracking', true, 3),
-        ('analytics', 'features', 'Fleet Analytics', true, 4),
-        ('compliance', 'features', 'Compliance Management', true, 5)
-    `
-  }
-
   // Insert default pricing if not exists
   const existingPricing = await sql`SELECT COUNT(*) FROM pricing`
   if (parseInt(existingPricing[0].count) === 0) {
