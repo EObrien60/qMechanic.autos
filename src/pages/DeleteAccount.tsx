@@ -22,9 +22,9 @@ export default function DeleteAccount() {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          company: 'Account Deletion Request',
-          fleet_size: 'deletion',
           message: formData.message,
+          form_source: 'delete-account',
+          submitted_at: new Date().toISOString(),
         }),
       })
 

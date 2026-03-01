@@ -110,10 +110,29 @@
   font-size: 0.75rem;
   font-weight: 600;
   border-radius: 100px;
+  white-space: nowrap;
 }
 
 .cardHeader {
   margin-bottom: var(--space-6);
+}
+
+.roleIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+  color: var(--color-accent);
+}
+
+.roleIcon svg {
+  width: 20px;
+  height: 20px;
 }
 
 .cardHeader h3 {
@@ -148,7 +167,7 @@
 }
 
 .period {
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: var(--color-text-tertiary);
   margin-left: var(--space-2);
 }
@@ -193,6 +212,107 @@
 .checkIcon svg {
   width: 10px;
   height: 10px;
+}
+
+/* Calculator */
+.calculator {
+  margin-top: var(--space-12);
+  padding: var(--space-8);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+}
+
+.calcInner h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-6);
+  text-align: center;
+}
+
+.calcGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.calcRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-3) 0;
+}
+
+.calcRole {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.calcMath {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+.calcResult {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-align: right;
+  min-width: 80px;
+}
+
+.calcTotal {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.calcTotal .calcRole {
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.calcTotal .calcResult {
+  font-size: 1.25rem;
+  color: var(--color-accent);
+}
+
+.calcSaving {
+  text-align: center;
+  margin-top: var(--space-4);
+  font-size: 0.8125rem;
+  color: var(--color-success);
+  font-weight: 500;
+}
+
+/* Trust Signals */
+.trustRow {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-10);
+  margin-top: var(--space-10);
+  flex-wrap: wrap;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 0.9375rem;
+  color: var(--color-text-tertiary);
+}
+
+.trustIcon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-accent);
+  flex-shrink: 0;
 }
 
 /* FAQ */
@@ -260,5 +380,19 @@
 
   .faqGrid {
     grid-template-columns: 1fr;
+  }
+
+  .calcRow {
+    grid-template-columns: 1fr auto;
+  }
+
+  .calcMath {
+    display: none;
+  }
+
+  .trustRow {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
   }
 }

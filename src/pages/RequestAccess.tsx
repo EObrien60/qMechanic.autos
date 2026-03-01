@@ -23,7 +23,9 @@ export default function RequestAccess() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
-          message: `[Account Request] ${formData.message || 'New account request from website.'}`,
+          message: formData.message || 'New account request from website.',
+          form_source: 'request-access',
+          submitted_at: new Date().toISOString(),
         }),
       })
 

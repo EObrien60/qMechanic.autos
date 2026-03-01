@@ -23,9 +23,10 @@ export default function Support() {
         body: JSON.stringify({
           name: supportData.name,
           email: supportData.email,
-          company: supportData.subject,
-          fleet_size: 'support',
+          subject: supportData.subject,
           message: supportData.message,
+          form_source: 'support',
+          submitted_at: new Date().toISOString(),
         }),
       })
 
