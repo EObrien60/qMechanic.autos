@@ -1,3 +1,4 @@
+import { track } from '@vercel/analytics'
 import styles from './Legal.module.css'
 
 export default function Privacy() {
@@ -113,8 +114,8 @@ export default function Privacy() {
             <h3>Contact Us</h3>
             <p>If you have any questions about this Privacy Policy or wish to exercise your data rights, contact us at:</p>
             <p><strong>OBH Software</strong></p>
-            <p>Email: <a href="mailto:info@obhsoftware.ie">info@obhsoftware.ie</a></p>
-            <p>Phone: <a href="tel:+353868363332">+353 (86) 836 3332</a></p>
+            <p>Email: <a href="mailto:info@obhsoftware.ie" onClick={() => track('Contact Method Click', { method: 'email', page: 'privacy' })}>info@obhsoftware.ie</a></p>
+            <p>Phone: <a href="tel:+353868363332" onClick={() => track('Contact Method Click', { method: 'phone', page: 'privacy' })}>+353 (86) 836 3332</a></p>
           </div>
         </div>
       </div>

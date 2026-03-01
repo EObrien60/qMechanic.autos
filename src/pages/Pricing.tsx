@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { track } from '@vercel/analytics'
 import styles from './Pricing.module.css'
 
 interface PricingTier {
@@ -98,13 +99,13 @@ export default function Pricing() {
           <div className={styles.toggle}>
             <button
               className={`${styles.toggleBtn} ${!annual ? styles.active : ''}`}
-              onClick={() => setAnnual(false)}
+              onClick={() => { track('Billing Toggle', { period: 'monthly' }); setAnnual(false) }}
             >
               Monthly
             </button>
             <button
               className={`${styles.toggleBtn} ${annual ? styles.active : ''}`}
-              onClick={() => setAnnual(true)}
+              onClick={() => { track('Billing Toggle', { period: 'annual' }); setAnnual(true) }}
             >
               Annual
               <span className={styles.saveBadge}>Save 20%</span>
@@ -157,6 +158,7 @@ export default function Pricing() {
                   to="/contact"
                   className={`btn ${tier.highlighted ? 'btn-primary' : 'btn-secondary'}`}
                   style={{ width: '100%' }}
+                  onClick={() => track('Pricing CTA Click', { tier: tier.name, cta: tier.cta_text, period: annual ? 'annual' : 'monthly' })}
                 >
                   {tier.cta_text}
                 </Link>
@@ -206,7 +208,7 @@ export default function Pricing() {
           <div className={styles.ctaCard}>
             <h2>Not sure which plan is right?</h2>
             <p>Let's talk. We'll help you find the perfect fit for your operation.</p>
-            <Link to="/contact" className="btn btn-primary">
+            <Link to="/contact" className="btn btn-primary" onClick={() => track('CTA Click', { label: 'Book a Demo', location: 'pricing-bottom' })}>
               Book a Demo
             </Link>
           </div>

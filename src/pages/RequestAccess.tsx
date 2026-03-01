@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { track } from '@vercel/analytics'
 import styles from './RequestAccess.module.css'
 
 export default function RequestAccess() {
@@ -14,6 +15,7 @@ export default function RequestAccess() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('loading')
+    track('Form Submit', { form: 'request-access', shopSize: formData.fleet_size || 'not-specified' })
 
     try {
       const res = await fetch('/api/contact', {
@@ -27,12 +29,15 @@ export default function RequestAccess() {
 
       if (res.ok) {
         setStatus('success')
+        track('Form Success', { form: 'request-access' })
         setFormData({ name: '', email: '', company: '', fleet_size: '', message: '' })
       } else {
         setStatus('error')
+        track('Form Error', { form: 'request-access', reason: 'server-error' })
       }
     } catch {
       setStatus('error')
+      track('Form Error', { form: 'request-access', reason: 'network-error' })
     }
   }
 

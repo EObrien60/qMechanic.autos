@@ -82,7 +82,22 @@
 .heroCta {
   display: flex;
   gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.appStoreBadge {
+  display: inline-block;
   margin-bottom: var(--space-12);
+  transition: opacity var(--transition-fast);
+}
+
+.appStoreBadge:hover {
+  opacity: 0.8;
+}
+
+.appStoreBadge img {
+  height: 40px;
+  width: auto;
 }
 
 .stats {
@@ -133,7 +148,7 @@
   flex-shrink: 0;
   border-radius: 24px;
   overflow: hidden;
-  background: #0a0e1a;
+  background: #0a0f1c;
   box-shadow: var(--shadow-lg), 0 0 40px rgba(34, 211, 238, 0.06);
   border: 1px solid var(--color-border);
   opacity: 0.75;

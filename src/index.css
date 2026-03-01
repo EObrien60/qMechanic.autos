@@ -1,17 +1,17 @@
 /* qMechanic Design System - Industrial Precision */
 
 :root {
-  /* Core Palette - Dark industrial with cyan accents */
-  --color-bg-primary: #0a0d12;
-  --color-bg-secondary: #0f1419;
-  --color-bg-tertiary: #151c24;
-  --color-bg-elevated: #1a232e;
+  /* Core Palette - Deep navy to match app */
+  --color-bg-primary: #0a0f1c;
+  --color-bg-secondary: #0e1525;
+  --color-bg-tertiary: #131d2f;
+  --color-bg-elevated: #182438;
 
   /* Surface colors */
-  --color-surface: #1e2833;
-  --color-surface-hover: #252f3c;
-  --color-border: #2a3544;
-  --color-border-subtle: #1e2833;
+  --color-surface: #1c2a40;
+  --color-surface-hover: #22324a;
+  --color-border: #243550;
+  --color-border-subtle: #1a2840;
 
   /* Text hierarchy */
   --color-text-primary: #f0f4f8;
@@ -25,10 +25,10 @@
   --color-accent-subtle: rgba(34, 211, 238, 0.1);
   --color-accent-glow: rgba(34, 211, 238, 0.4);
 
-  /* Secondary accent - Warning orange for CTAs */
-  --color-cta: #f97316;
-  --color-cta-hover: #ea580c;
-  --color-cta-subtle: rgba(249, 115, 22, 0.1);
+  /* CTA - Cyan to match app primary actions */
+  --color-cta: #22d3ee;
+  --color-cta-hover: #06b6d4;
+  --color-cta-subtle: rgba(34, 211, 238, 0.1);
 
   /* Status colors */
   --color-success: #10b981;
@@ -203,15 +203,16 @@ a:hover {
 
 .btn-primary {
   background: var(--color-cta);
-  color: white;
-  box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+  color: #0a0f1c;
+  font-weight: 600;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
 }
 
 .btn-primary:hover {
   background: var(--color-cta-hover);
   transform: translateY(-1px);
-  box-shadow: 0 0 30px rgba(249, 115, 22, 0.4);
-  color: white;
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+  color: #0a0f1c;
 }
 
 .btn-secondary {

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { track } from '@vercel/analytics'
 import styles from './Home.module.css'
 
 const homeFeatures = [
@@ -105,32 +106,25 @@ export default function Home() {
               processing. Replace paper with a system built for modern workshops.
             </p>
             <div className={styles.heroCta}>
-              <Link to="/contact" className="btn btn-primary">
+              <Link to="/contact" className="btn btn-primary" onClick={() => track('CTA Click', { label: 'Book a Demo', location: 'hero' })}>
                 Book a Demo
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </Link>
-              <Link to="/features" className="btn btn-secondary">
+              <Link to="/features" className="btn btn-secondary" onClick={() => track('CTA Click', { label: 'Explore Features', location: 'hero' })}>
                 Explore Features
               </Link>
             </div>
-            <div className={styles.stats}>
-              <div className={styles.stat}>
-                <span className={styles.statValue}>2.4M+</span>
-                <span className={styles.statLabel}>Job Cards Processed</span>
-              </div>
-              <div className={styles.statDivider} />
-              <div className={styles.stat}>
-                <span className={styles.statValue}>340+</span>
-                <span className={styles.statLabel}>Fleet Operators</span>
-              </div>
-              <div className={styles.statDivider} />
-              <div className={styles.stat}>
-                <span className={styles.statValue}>99.9%</span>
-                <span className={styles.statLabel}>Uptime SLA</span>
-              </div>
-            </div>
+            <a
+              href="https://apps.apple.com/app/qmechanic"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.appStoreBadge}
+              onClick={() => track('App Store Click', { location: 'hero' })}
+            >
+              <img src="/app-store-badge.svg" alt="Download on the App Store" />
+            </a>
           </div>
           <div className={styles.heroVisual}>
             <div className={styles.appShowcase}>
@@ -192,7 +186,7 @@ export default function Home() {
               <p>Book a personalized demo and see how qMechanic can transform your workshop.</p>
             </div>
             <div className={styles.ctaActions}>
-              <Link to="/contact" className="btn btn-primary">
+              <Link to="/contact" className="btn btn-primary" onClick={() => track('CTA Click', { label: 'Book Demo', location: 'home-bottom' })}>
                 Book Demo
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

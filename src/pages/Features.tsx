@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { track } from '@vercel/analytics'
 import styles from './Features.module.css'
 
 const features = [
@@ -199,7 +200,7 @@ export default function Features() {
           <div className={styles.ctaCard}>
             <h2>See it in action</h2>
             <p>Book a personalized demo tailored to your fleet size and needs.</p>
-            <Link to="/contact" className="btn btn-primary">
+            <Link to="/contact" className="btn btn-primary" onClick={() => track('CTA Click', { label: 'Book Demo', location: 'features-bottom' })}>
               Book Demo
             </Link>
           </div>

@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10, 13, 18, 0.8);
+  background: rgba(10, 15, 28, 0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border-subtle);
 }
@@ -25,15 +25,10 @@
   text-decoration: none;
 }
 
-.logoIcon {
+.logoImg {
   width: 32px;
   height: 32px;
-  color: var(--color-accent);
-}
-
-.logoIcon svg {
-  width: 100%;
-  height: 100%;
+  object-fit: contain;
 }
 
 .logoText {

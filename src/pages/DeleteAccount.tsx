@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { track } from '@vercel/analytics'
 import styles from './Contact.module.css'
 
 export default function DeleteAccount() {
@@ -12,6 +13,7 @@ export default function DeleteAccount() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('loading')
+    track('Form Submit', { form: 'delete-account' })
 
     try {
       const res = await fetch('/api/contact', {
@@ -28,12 +30,15 @@ export default function DeleteAccount() {
 
       if (res.ok) {
         setStatus('success')
+        track('Form Success', { form: 'delete-account' })
         setFormData({ name: '', email: '', message: '' })
       } else {
         setStatus('error')
+        track('Form Error', { form: 'delete-account', reason: 'server-error' })
       }
     } catch {
       setStatus('error')
+      track('Form Error', { form: 'delete-account', reason: 'network-error' })
     }
   }
 

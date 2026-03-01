@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { track } from '@vercel/analytics'
 import styles from './Footer.module.css'
 
 export default function Footer() {
@@ -8,34 +9,37 @@ export default function Footer() {
         <div className={styles.grid}>
           <div className={styles.brand}>
             <Link to="/" className={styles.logo}>
-              <div className={styles.logoIcon}>
-                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8 16a8 8 0 1 1 16 0" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-                  <circle cx="16" cy="16" r="3" fill="currentColor"/>
-                  <path d="M16 13v-4M19 16h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              </div>
+              <img src="/qmlogo_darkmode.png" alt="qMechanic" className={styles.logoImg} />
               <span>qMechanic</span>
             </Link>
             <p className={styles.tagline}>
               Modern Fleet Management.<br />
               Paper-Free Operations.
             </p>
+            <a
+              href="https://apps.apple.com/app/qmechanic"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.appStoreBadge}
+              onClick={() => track('App Store Click', { location: 'footer' })}
+            >
+              <img src="/app-store-badge.svg" alt="Download on the App Store" />
+            </a>
           </div>
 
           <div className={styles.links}>
             <h4>Product</h4>
-            <Link to="/features">Features</Link>
-            <Link to="/pricing">Pricing</Link>
-            <Link to="/contact">Book Demo</Link>
+            <Link to="/features" onClick={() => track('Footer Link Click', { label: 'Features', section: 'product' })}>Features</Link>
+            <Link to="/pricing" onClick={() => track('Footer Link Click', { label: 'Pricing', section: 'product' })}>Pricing</Link>
+            <Link to="/contact" onClick={() => track('Footer Link Click', { label: 'Book Demo', section: 'product' })}>Book Demo</Link>
           </div>
 
           <div className={styles.links}>
             <h4>Company</h4>
-            <Link to="/contact">Contact</Link>
-            <Link to="/support">Support</Link>
-            <Link to="/privacy">Privacy Policy</Link>
-            <Link to="/terms">Terms of Service</Link>
+            <Link to="/contact" onClick={() => track('Footer Link Click', { label: 'Contact', section: 'company' })}>Contact</Link>
+            <Link to="/support" onClick={() => track('Footer Link Click', { label: 'Support', section: 'company' })}>Support</Link>
+            <Link to="/privacy" onClick={() => track('Footer Link Click', { label: 'Privacy Policy', section: 'company' })}>Privacy Policy</Link>
+            <Link to="/terms" onClick={() => track('Footer Link Click', { label: 'Terms of Service', section: 'company' })}>Terms of Service</Link>
           </div>
         </div>
 
@@ -45,7 +49,6 @@ export default function Footer() {
           </p>
           <div className={styles.badges}>
             <span className={styles.badge}>GDPR Compliant</span>
-            <span className={styles.badge}>99.9% Uptime SLA</span>
           </div>
         </div>
       </div>

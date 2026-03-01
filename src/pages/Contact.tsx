@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { track } from '@vercel/analytics'
 import styles from './Contact.module.css'
 
 export default function Contact() {
@@ -14,6 +15,7 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('loading')
+    track('Form Submit', { form: 'contact', fleetSize: formData.fleet_size || 'not-specified' })
 
     try {
       const res = await fetch('/api/contact', {
@@ -24,12 +26,15 @@ export default function Contact() {
 
       if (res.ok) {
         setStatus('success')
+        track('Form Success', { form: 'contact' })
         setFormData({ name: '', email: '', company: '', fleet_size: '', message: '' })
       } else {
         setStatus('error')
+        track('Form Error', { form: 'contact', reason: 'server-error' })
       }
     } catch {
       setStatus('error')
+      track('Form Error', { form: 'contact', reason: 'network-error' })
     }
   }
 
@@ -54,7 +59,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4>Email</h4>
-                    <a href="mailto:info@obhsoftware.ie">info@obhsoftware.ie</a>
+                    <a href="mailto:info@obhsoftware.ie" onClick={() => track('Contact Method Click', { method: 'email', page: 'contact' })}>info@obhsoftware.ie</a>
                   </div>
                 </div>
                 <div className={styles.contactMethod}>
@@ -65,7 +70,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4>Phone</h4>
-                    <a href="tel:+353868363332">+353 (86) 836 3332</a>
+                    <a href="tel:+353868363332" onClick={() => track('Contact Method Click', { method: 'phone', page: 'contact' })}>+353 (86) 836 3332</a>
                   </div>
                 </div>
                 <div className={styles.contactMethod}>
