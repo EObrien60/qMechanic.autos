@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { track } from '@vercel/analytics'
+import SEO from '../components/SEO'
 import styles from './Pricing.module.css'
 
 interface Role {
@@ -55,7 +56,7 @@ const roles: Role[] = [
       'Photo attachments',
       'Digital sign-off',
     ],
-    highlighted: true,
+    highlighted: false,
   },
   {
     id: 'driver',
@@ -90,12 +91,22 @@ export default function Pricing() {
     return Math.round(monthly * 0.8 * 12)
   }
 
-  // Example fleet: 3 admins + 10 techs + 50 drivers
-  const exampleMonthly = 3 * 35 + 10 * 22 + 50 * 8
-  const exampleAnnual = Math.round(exampleMonthly * 0.8 * 12)
-
   return (
     <>
+      <SEO
+        title="Pricing"
+        description="qMechanic per-seat pricing: Admin €35/mo, Technician €22/mo, Driver €8/mo. Pay only for the roles you need. 14-day free trial, no long-term contracts. Save 20% with annual billing."
+        path="/pricing"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            { '@type': 'Question', name: 'Is there a free trial?', acceptedAnswer: { '@type': 'Answer', text: 'Yes! Every account starts with a 14-day free trial. No credit card required.' } },
+            { '@type': 'Question', name: 'How does per-seat pricing work?', acceptedAnswer: { '@type': 'Answer', text: 'You only pay for the users you add. Each user is assigned a role (Admin, Technician, or Driver) and billed at that role\'s rate.' } },
+            { '@type': 'Question', name: 'Can I cancel anytime?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, there are no long-term contracts. Cancel anytime and you won\'t be charged again.' } },
+          ],
+        }}
+      />
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.container}>
@@ -130,11 +141,8 @@ export default function Pricing() {
             {roles.map((role) => (
               <div
                 key={role.id}
-                className={`${styles.pricingCard} ${role.highlighted ? styles.highlighted : ''}`}
+                className={styles.pricingCard}
               >
-                {role.highlighted && (
-                  <div className={styles.popularBadge}>Most Common</div>
-                )}
                 <div className={styles.cardHeader}>
                   <div className={styles.roleIcon}>{role.icon}</div>
                   <h3>{role.name}</h3>
@@ -169,7 +177,7 @@ export default function Pricing() {
                 </ul>
                 <Link
                   to="/contact"
-                  className={`btn ${role.highlighted ? 'btn-primary' : 'btn-secondary'}`}
+                  className="btn btn-secondary"
                   style={{ width: '100%' }}
                   onClick={() => track('Pricing CTA Click', { role: role.name, period: annual ? 'annual' : 'monthly' })}
                 >
@@ -177,42 +185,6 @@ export default function Pricing() {
                 </Link>
               </div>
             ))}
-          </div>
-
-          {/* Example Calculator */}
-          <div className={styles.calculator}>
-            <div className={styles.calcInner}>
-              <h3>Example: Mid-size fleet</h3>
-              <div className={styles.calcGrid}>
-                <div className={styles.calcRow}>
-                  <span className={styles.calcRole}>3 Admins</span>
-                  <span className={styles.calcMath}>3 &times; &euro;{getPrice(35)} &times; 12</span>
-                  <span className={styles.calcResult}>&euro;{3 * getPrice(35) * 12}</span>
-                </div>
-                <div className={styles.calcRow}>
-                  <span className={styles.calcRole}>10 Technicians</span>
-                  <span className={styles.calcMath}>10 &times; &euro;{getPrice(22)} &times; 12</span>
-                  <span className={styles.calcResult}>&euro;{10 * getPrice(22) * 12}</span>
-                </div>
-                <div className={styles.calcRow}>
-                  <span className={styles.calcRole}>50 Drivers</span>
-                  <span className={styles.calcMath}>50 &times; &euro;{getPrice(8)} &times; 12</span>
-                  <span className={styles.calcResult}>&euro;{50 * getPrice(8) * 12}</span>
-                </div>
-                <div className={`${styles.calcRow} ${styles.calcTotal}`}>
-                  <span className={styles.calcRole}>Total per year</span>
-                  <span className={styles.calcMath}>63 users</span>
-                  <span className={styles.calcResult}>
-                    &euro;{annual ? (3 * getPrice(35) + 10 * getPrice(22) + 50 * getPrice(8)) * 12 : exampleMonthly * 12}
-                  </span>
-                </div>
-              </div>
-              {annual && (
-                <p className={styles.calcSaving}>
-                  You save &euro;{exampleMonthly * 12 - exampleAnnual}/year with annual billing
-                </p>
-              )}
-            </div>
           </div>
 
           {/* Trust Signals */}

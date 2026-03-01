@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { track } from '@vercel/analytics'
+import SEO from '../components/SEO'
 import styles from './Contact.module.css'
 
 export default function Contact() {
@@ -44,6 +45,11 @@ export default function Contact() {
 
   return (
     <>
+      <SEO
+        title="Book a Demo"
+        description="Get in touch with the qMechanic team. Book a demo, ask questions about fleet management software, or learn how digital job cards and AI invoicing can transform your workshop."
+        path="/contact"
+      />
       <section className={styles.contact}>
         <div className={styles.container}>
           <div className={styles.grid}>

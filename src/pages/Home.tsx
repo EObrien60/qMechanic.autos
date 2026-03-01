@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { track } from '@vercel/analytics'
+import SEO from '../components/SEO'
 import styles from './Home.module.css'
 
 const homeFeatures = [
@@ -88,6 +89,40 @@ export default function Home() {
 
   return (
     <>
+      <SEO
+        title="Modern Fleet Management"
+        description="qMechanic — digital job cards, AI-powered invoice processing, fleet tracking, and compliance management. Replace paper with a system built for modern workshops. Live in Ireland & the UK."
+        path="/"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          name: 'qMechanic',
+          applicationCategory: 'BusinessApplication',
+          operatingSystem: 'iOS, Web',
+          description: 'Fleet management software with digital job cards, AI invoice processing, live fleet tracking, and compliance management.',
+          url: 'https://qmechanic.autos',
+          offers: {
+            '@type': 'AggregateOffer',
+            priceCurrency: 'EUR',
+            lowPrice: '8',
+            highPrice: '35',
+            offerCount: '3',
+          },
+          provider: {
+            '@type': 'Organization',
+            name: 'OBH Software',
+            url: 'https://qmechanic.autos',
+            logo: 'https://qmechanic.autos/qmlogo.png',
+            address: { '@type': 'PostalAddress', addressCountry: 'IE' },
+            contactPoint: {
+              '@type': 'ContactPoint',
+              telephone: '+353-86-836-3332',
+              email: 'info@obhsoftware.ie',
+              contactType: 'sales',
+            },
+          },
+        }}
+      />
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroGrid} />

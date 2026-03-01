@@ -1,8 +1,15 @@
 import { track } from '@vercel/analytics'
+import SEO from '../components/SEO'
 import styles from './Legal.module.css'
 
 export default function Privacy() {
   return (
+    <>
+    <SEO
+      title="Privacy Policy"
+      description="qMechanic privacy policy. Learn how we collect, use, and protect your data. GDPR compliant. Operated by OBH Software, Ireland."
+      path="/privacy"
+    />
     <section className={styles.legal}>
       <div className={styles.container}>
         <span className={styles.sectionTag}>Legal</span>
@@ -120,5 +127,6 @@ export default function Privacy() {
         </div>
       </div>
     </section>
+    </>
   )
 }

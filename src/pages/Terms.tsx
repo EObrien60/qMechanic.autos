@@ -1,8 +1,15 @@
 import { track } from '@vercel/analytics'
+import SEO from '../components/SEO'
 import styles from './Legal.module.css'
 
 export default function Terms() {
   return (
+    <>
+    <SEO
+      title="Terms of Service"
+      description="qMechanic terms of service. Read the terms and conditions for using the qMechanic fleet management platform. Operated by OBH Software, Ireland."
+      path="/terms"
+    />
     <section className={styles.legal}>
       <div className={styles.container}>
         <span className={styles.sectionTag}>Legal</span>
@@ -151,5 +158,6 @@ export default function Terms() {
         </div>
       </div>
     </section>
+    </>
   )
 }

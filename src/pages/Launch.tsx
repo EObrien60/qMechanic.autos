@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { track } from '@vercel/analytics'
+import SEO from '../components/SEO'
 import styles from './Launch.module.css'
 
 export default function Launch() {
@@ -50,6 +51,13 @@ export default function Launch() {
   }
 
   return (
+    <>
+    <SEO
+      title="Launch"
+      description="Enter your qMechanic verification code to access your workspace."
+      path="/launch"
+      noindex
+    />
     <section className={styles.page}>
       <div className={styles.container}>
         <div className={styles.wrapper}>
@@ -98,5 +106,6 @@ export default function Launch() {
         </div>
       </div>
     </section>
+  </>
   )
 }

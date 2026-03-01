@@ -77,7 +77,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
-  align-items: start;
+  align-items: stretch;
 }
 
 .pricingCard {
@@ -87,6 +87,8 @@
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-xl);
   transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
 }
 
 .pricingCard:hover {
@@ -186,6 +188,7 @@
   margin-bottom: var(--space-8);
   padding-top: var(--space-6);
   border-top: 1px solid var(--color-border-subtle);
+  flex: 1;
 }
 
 .featureList li {

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { track } from '@vercel/analytics'
+import SEO from '../components/SEO'
 import styles from './Features.module.css'
 
 const features = [
@@ -138,6 +139,11 @@ export default function Features() {
 
   return (
     <>
+      <SEO
+        title="Features"
+        description="Explore qMechanic features: digital job cards, AI invoice processing, pre-trip inspections, live fleet tracking, analytics, and compliance management for workshops and fleets."
+        path="/features"
+      />
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.container}>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { track } from '@vercel/analytics'
+import SEO from '../components/SEO'
 import styles from './Contact.module.css'
 
 export default function DeleteAccount() {
@@ -44,6 +45,12 @@ export default function DeleteAccount() {
 
   return (
     <>
+      <SEO
+        title="Delete Account"
+        description="Request deletion of your qMechanic account and all associated personal data. GDPR compliant. Processed within 30 days."
+        path="/delete-account"
+        noindex
+      />
       <section className={styles.contact}>
         <div className={styles.container}>
           <div className={styles.grid}>

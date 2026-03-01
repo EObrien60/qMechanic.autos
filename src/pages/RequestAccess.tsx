@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { track } from '@vercel/analytics'
+import SEO from '../components/SEO'
 import styles from './RequestAccess.module.css'
 
 export default function RequestAccess() {
@@ -44,6 +45,12 @@ export default function RequestAccess() {
   }
 
   return (
+    <>
+    <SEO
+      title="Request Access"
+      description="Create your qMechanic account. Submit your details and our team will set up your workspace with digital job cards, AI invoicing, and fleet management tools."
+      path="/request-access"
+    />
     <section className={styles.page}>
       <div className={styles.container}>
         <div className={styles.grid}>
@@ -186,5 +193,6 @@ export default function RequestAccess() {
         </div>
       </div>
     </section>
+    </>
   )
 }

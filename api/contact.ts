@@ -32,10 +32,10 @@ function buildWebhookPayload(data: FormPayload): WebhookBody {
 
   const config = sourceMap[form_source] || { titlePrefix: 'Website Form', type: 'task' as const, priority: 'medium' as const }
 
-  const title = `${config.titlePrefix} — ${name} (${email})`
+  const title = `[qMechanic] ${config.titlePrefix} — ${name} (${email})`
 
   const lines: string[] = [
-    `## ${config.titlePrefix}`,
+    `## [qMechanic] ${config.titlePrefix}`,
     '',
     `| Field | Value |`,
     `|-------|-------|`,

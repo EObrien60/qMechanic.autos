@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { track } from '@vercel/analytics'
+import SEO from '../components/SEO'
 import styles from './Contact.module.css'
 
 export default function Support() {
@@ -46,6 +47,11 @@ export default function Support() {
 
   return (
     <>
+      <SEO
+        title="Support"
+        description="Need help with qMechanic? Our support team is ready to assist with account issues, technical questions, or feature requests. Typical response within 24 hours."
+        path="/support"
+      />
       <section className={styles.contact}>
         <div className={styles.container}>
           <div className={styles.grid}>
