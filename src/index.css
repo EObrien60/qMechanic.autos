@@ -237,6 +237,13 @@ a:hover {
   background: var(--color-surface);
 }
 
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 /* Input styles */
 input, textarea, select {
   font-family: var(--font-display);

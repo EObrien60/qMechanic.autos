@@ -14,8 +14,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const code = req.query.code as string | undefined
-  if (!code || code.length !== 10) {
-    return res.status(400).json({ error: 'A valid 10-character code is required' })
+  if (!code || code.length < 1) {
+    return res.status(400).json({ error: 'A verification code is required' })
   }
 
   const gatekeeperUrl = process.env.GATEKEEPER_URL

@@ -9,7 +9,7 @@ export default function Launch() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (code.length !== 10) return
+    if (code.length < 1) return
 
     setStatus('loading')
     setErrorMsg('')
@@ -67,7 +67,7 @@ export default function Launch() {
                   type="text"
                   id="code"
                   required
-                  maxLength={10}
+                  maxLength={20}
                   value={code}
                   onChange={(e) => setCode(e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, ''))}
                   placeholder="XXXXXXXXXX"
@@ -85,7 +85,7 @@ export default function Launch() {
                 type="submit"
                 className="btn btn-primary"
                 style={{ width: '100%' }}
-                disabled={status === 'loading' || code.length !== 10}
+                disabled={status === 'loading' || code.length < 1}
               >
                 {status === 'loading' ? 'Verifying...' : 'Launch'}
               </button>

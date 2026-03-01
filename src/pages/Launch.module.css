@@ -71,6 +71,13 @@
   text-transform: uppercase;
 }
 
+.charCount {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
 .errorMessage {
   padding: var(--space-3) var(--space-4);
   background: rgba(239, 68, 68, 0.1);
