@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Skill(frontend-design)"
+      "Skill(frontend-design)",
+      "mcp__claude_ai_Workflow__get_kb_article"
     ],
     "deny": [],
     "ask": []
