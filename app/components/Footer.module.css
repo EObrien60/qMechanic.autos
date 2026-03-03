@@ -117,6 +117,31 @@
   border: 1px solid var(--color-border-subtle);
 }
 
+.bottomRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.obhBrand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.obhLogo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.obhText {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #E8862A;
+  letter-spacing: 0.02em;
+}
+
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr 1fr;
@@ -132,6 +157,11 @@
     flex-direction: column;
     gap: var(--space-4);
     text-align: center;
+  }
+
+  .bottomRight {
+    flex-direction: column;
+    gap: var(--space-3);
   }
 
   .badges {

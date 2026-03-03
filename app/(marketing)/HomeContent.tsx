@@ -166,6 +166,10 @@ export default function HomeContent({ enabledIds }: HomeContentProps) {
                 <img src="/google-play-badge.svg" alt="Get it on Google Play" />
               </a>
             </div>
+            <a href="https://obhsoftware.ie" target="_blank" rel="noopener noreferrer" className={styles.heroObh}>
+              <img src="/obhlogoorange.png" alt="OBH" className={styles.heroObhLogo} />
+              <span className={styles.heroObhText}>An OBH Product</span>
+            </a>
           </div>
           <div className={styles.heroVisual}>
             <div className={styles.appShowcase}>
@@ -248,6 +252,10 @@ export default function HomeContent({ enabledIds }: HomeContentProps) {
               <span className={styles.ctaNote}>Free 14-day trial &bull; No credit card required</span>
             </div>
           </div>
+          <a href="https://obhsoftware.ie" target="_blank" rel="noopener noreferrer" className={styles.obhBrand}>
+            <img src="/obhlogoorange.png" alt="OBH" className={styles.obhLogo} />
+            <span className={styles.obhText}>An OBH Product</span>
+          </a>
         </div>
       </section>
     </>

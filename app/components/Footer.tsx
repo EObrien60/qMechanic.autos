@@ -60,8 +60,14 @@ export default function Footer() {
           <p className={styles.copyright}>
             <span className="mono">&copy; {new Date().getFullYear()}</span> qMechanic. All rights reserved.
           </p>
-          <div className={styles.badges}>
-            <span className={styles.badge}>GDPR Compliant</span>
+          <div className={styles.bottomRight}>
+            <a href="https://obhsoftware.ie" target="_blank" rel="noopener noreferrer" className={styles.obhBrand}>
+              <img src="/obhlogoorange.png" alt="OBH" className={styles.obhLogo} />
+              <span className={styles.obhText}>An OBH Product</span>
+            </a>
+            <div className={styles.badges}>
+              <span className={styles.badge}>GDPR Compliant</span>
+            </div>
           </div>
         </div>
       </div>

@@ -88,7 +88,7 @@
 .storeBadges {
   display: flex;
   gap: var(--space-3);
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-6);
 }
 
 .appStoreBadge {
@@ -380,6 +380,57 @@
 .ctaNote {
   font-size: 0.8125rem;
   color: var(--color-text-tertiary);
+}
+
+/* OBH Branding */
+.heroObh {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: rgba(232, 134, 42, 0.08);
+  border: 1px solid rgba(232, 134, 42, 0.15);
+  border-radius: 100px;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+}
+
+.heroObh:hover {
+  opacity: 1;
+}
+
+.heroObhLogo {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.heroObhText {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: #E8862A;
+  letter-spacing: 0.04em;
+}
+
+.obhBrand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-10);
+}
+
+.obhLogo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.obhText {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: #E8862A;
+  letter-spacing: 0.02em;
 }
 
 /* Responsive */
