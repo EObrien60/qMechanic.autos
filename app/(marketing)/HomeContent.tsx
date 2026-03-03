@@ -146,15 +146,26 @@ export default function HomeContent({ enabledIds }: HomeContentProps) {
                 Explore Features
               </Link>
             </div>
-            <a
-              href="https://apps.apple.com/app/qmechanic"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.appStoreBadge}
-              onClick={() => track('App Store Click', { location: 'hero' })}
-            >
-              <img src="/app-store-badge.svg" alt="Download on the App Store" />
-            </a>
+            <div className={styles.storeBadges}>
+              <a
+                href="https://apps.apple.com/ie/app/qmechanic/id6757266644"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.appStoreBadge}
+                onClick={() => track('App Store Click', { location: 'hero' })}
+              >
+                <img src="/app-store-badge.svg" alt="Download on the App Store" />
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=ie.quantumharbour.qmechanic"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.appStoreBadge}
+                onClick={() => track('Google Play Click', { location: 'hero' })}
+              >
+                <img src="/google-play-badge.svg" alt="Get it on Google Play" />
+              </a>
+            </div>
           </div>
           <div className={styles.heroVisual}>
             <div className={styles.appShowcase}>

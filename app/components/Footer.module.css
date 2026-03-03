@@ -38,9 +38,14 @@
   object-fit: contain;
 }
 
+.storeBadges {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
 .appStoreBadge {
   display: inline-block;
-  margin-top: var(--space-4);
   transition: opacity var(--transition-fast);
 }
 

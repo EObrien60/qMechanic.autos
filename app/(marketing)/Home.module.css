@@ -85,9 +85,14 @@
   margin-bottom: var(--space-6);
 }
 
+.storeBadges {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-12);
+}
+
 .appStoreBadge {
   display: inline-block;
-  margin-bottom: var(--space-12);
   transition: opacity var(--transition-fast);
 }
 
