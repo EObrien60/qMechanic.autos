@@ -2,31 +2,31 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 
-const SITE_URL = 'https://qmechanic.autos'
+const SITE_URL = 'https://casabonitadenver.com'
 
 export const metadata: Metadata = {
   title: {
-    default: 'qMechanic | Modern Fleet Management',
-    template: '%s | qMechanic',
+    default: 'Casa Bonita | Denver\'s Legendary Dining & Entertainment',
+    template: '%s | Casa Bonita',
   },
   description:
-    'Digital job cards, AI-powered invoice processing, and complete fleet visibility. Built for modern workshops.',
+    'Casa Bonita — Denver\'s most iconic dining and entertainment destination. Indoor waterfall, cliff divers, Mexican cuisine, and unforgettable experiences in Lakewood, Colorado.',
   metadataBase: new URL(SITE_URL),
   openGraph: {
     type: 'website',
-    siteName: 'qMechanic',
-    title: 'qMechanic | Modern Fleet Management',
+    siteName: 'Casa Bonita',
+    title: 'Casa Bonita | Denver\'s Legendary Dining & Entertainment',
     description:
-      'Digital job cards, AI-powered invoice processing, and complete fleet visibility. Built for modern workshops.',
+      'Casa Bonita — Denver\'s most iconic dining and entertainment destination. Indoor waterfall, cliff divers, Mexican cuisine, and unforgettable experiences in Lakewood, Colorado.',
     url: SITE_URL,
     images: [{ url: '/og-image.png' }],
-    locale: 'en_IE',
+    locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'qMechanic | Modern Fleet Management',
+    title: 'Casa Bonita | Denver\'s Legendary Dining & Entertainment',
     description:
-      'Digital job cards, AI-powered invoice processing, and complete fleet visibility. Built for modern workshops.',
+      'Casa Bonita — Denver\'s most iconic dining and entertainment destination. Indoor waterfall, cliff divers, Mexican cuisine, and unforgettable experiences in Lakewood, Colorado.',
     images: ['/og-image.png'],
   },
   icons: {

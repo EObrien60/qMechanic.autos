@@ -11,62 +11,39 @@ export default function Footer() {
         <div className={styles.grid}>
           <div className={styles.brand}>
             <Link href="/" className={styles.logo}>
-              <img src="/qmlogo_darkmode.png" alt="qMechanic" className={styles.logoImg} />
-              <span>qMechanic</span>
+              <span>Casa Bonita</span>
             </Link>
             <p className={styles.tagline}>
-              Modern Fleet Management.<br />
-              Paper-Free Operations.
+              Denver&apos;s Most Legendary<br />
+              Dining &amp; Entertainment Experience.
             </p>
-            <div className={styles.storeBadges}>
-              <a
-                href="https://apps.apple.com/ie/app/qmechanic/id6757266644"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.appStoreBadge}
-                onClick={() => track('App Store Click', { location: 'footer' })}
-              >
-                <img src="/app-store-badge.svg" alt="Download on the App Store" />
-              </a>
-              <a
-                href="https://play.google.com/store/apps/details?id=ie.quantumharbour.qmechanic"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.appStoreBadge}
-                onClick={() => track('Google Play Click', { location: 'footer' })}
-              >
-                <img src="/google-play-badge.svg" alt="Get it on Google Play" />
-              </a>
-            </div>
+            <p style={{ fontSize: '0.8rem', opacity: 0.6, marginTop: '0.5rem' }}>
+              6715 W Colfax Ave<br />Lakewood, CO 80214
+            </p>
           </div>
 
           <div className={styles.links}>
-            <h4>Product</h4>
-            <Link href="/features" onClick={() => track('Footer Link Click', { label: 'Features', section: 'product' })}>Features</Link>
-            <Link href="/pricing" onClick={() => track('Footer Link Click', { label: 'Pricing', section: 'product' })}>Pricing</Link>
-            <Link href="/contact" onClick={() => track('Footer Link Click', { label: 'Book Demo', section: 'product' })}>Book Demo</Link>
+            <h4>Visit</h4>
+            <Link href="/features" onClick={() => track('Footer Link Click', { label: 'Experience', section: 'visit' })}>Experience</Link>
+            <Link href="/pricing" onClick={() => track('Footer Link Click', { label: 'Menu', section: 'visit' })}>Menu</Link>
+            <Link href="/contact" onClick={() => track('Footer Link Click', { label: 'Reservations', section: 'visit' })}>Reservations</Link>
           </div>
 
           <div className={styles.links}>
-            <h4>Company</h4>
-            <Link href="/contact" onClick={() => track('Footer Link Click', { label: 'Contact', section: 'company' })}>Contact</Link>
-            <Link href="/support" onClick={() => track('Footer Link Click', { label: 'Support', section: 'company' })}>Support</Link>
-            <Link href="/privacy" onClick={() => track('Footer Link Click', { label: 'Privacy Policy', section: 'company' })}>Privacy Policy</Link>
-            <Link href="/terms" onClick={() => track('Footer Link Click', { label: 'Terms of Service', section: 'company' })}>Terms of Service</Link>
+            <h4>Info</h4>
+            <Link href="/contact" onClick={() => track('Footer Link Click', { label: 'Contact', section: 'info' })}>Contact Us</Link>
+            <Link href="/privacy" onClick={() => track('Footer Link Click', { label: 'Privacy Policy', section: 'info' })}>Privacy Policy</Link>
+            <Link href="/terms" onClick={() => track('Footer Link Click', { label: 'Terms', section: 'info' })}>Terms of Service</Link>
           </div>
         </div>
 
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            <span className="mono">&copy; {new Date().getFullYear()}</span> qMechanic. All rights reserved.
+            <span className="mono">&copy; {new Date().getFullYear()}</span> Casa Bonita. All rights reserved.
           </p>
           <div className={styles.bottomRight}>
-            <a href="https://obhsoftware.ie" target="_blank" rel="noopener noreferrer" className={styles.obhBrand}>
-              <img src="/obhlogoorange.png" alt="OBH" className={styles.obhLogo} />
-              <span className={styles.obhText}>An OBH Product</span>
-            </a>
             <div className={styles.badges}>
-              <span className={styles.badge}>GDPR Compliant</span>
+              <span className={styles.badge}>Lakewood, Colorado</span>
             </div>
           </div>
         </div>

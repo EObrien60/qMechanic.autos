@@ -1,175 +1,133 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
 import { track } from '@vercel/analytics'
 import styles from './Pricing.module.css'
 
-interface Role {
+interface MenuSection {
   id: string
   name: string
   icon: React.ReactNode
   description: string
-  price_monthly: number
-  features: string[]
-  highlighted: boolean
+  items: { name: string; description: string; price: string }[]
 }
 
-const roles: Role[] = [
+const menuSections: MenuSection[] = [
   {
-    id: 'admin',
-    name: 'Admin',
+    id: 'starters',
+    name: 'Starters & Appetizers',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="7" height="7" rx="1" />
-        <rect x="14" y="3" width="7" height="7" rx="1" />
-        <rect x="3" y="14" width="7" height="7" rx="1" />
-        <rect x="14" y="14" width="7" height="7" rx="1" />
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14l-4-4h3V8h2v4h3l-4 4z" />
       </svg>
     ),
-    description: 'Full platform access for managers and operations leads',
-    price_monthly: 35,
-    features: [
-      'Admin portal & dashboard',
-      'Reporting & analytics',
-      'AI invoice processing',
-      'AI chat assistant',
-      'System configuration',
-      'User management',
+    description: 'Start your Casa Bonita evening right with classics that have been on our menu for decades.',
+    items: [
+      { name: 'Chips & Salsa', description: 'House-made tortilla chips with our signature red salsa', price: '$6' },
+      { name: 'Queso Dip', description: 'Warm, creamy queso blanco with roasted peppers', price: '$9' },
+      { name: 'Guacamole', description: 'Fresh avocado with lime, cilantro, and jalapeño', price: '$10' },
+      { name: 'Loaded Nachos', description: 'Tortilla chips piled high with cheese, beans, jalapeños, and sour cream', price: '$14' },
     ],
-    highlighted: false,
   },
   {
-    id: 'technician',
-    name: 'Technician',
+    id: 'entrees',
+    name: 'Entrees',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 8v4l3 3" />
       </svg>
     ),
-    description: 'Workshop tools for mechanics and service technicians',
-    price_monthly: 22,
-    features: [
-      'Digital job cards',
-      'Workshop workflow',
-      'Inspections & defects',
-      'Timesheets',
-      'Photo attachments',
-      'Digital sign-off',
+    description: 'Classic Mexican dishes made for a legendary evening. Every entree comes with rice, beans, and a flour tortilla.',
+    items: [
+      { name: 'Cheese Enchiladas', description: 'Two corn tortillas stuffed with cheese, topped with red or green chile sauce', price: '$16' },
+      { name: 'Combination Plate', description: 'One enchilada, one taco, one tamale — the full Casa Bonita classic', price: '$19' },
+      { name: 'Chicken Burrito', description: 'Flour tortilla filled with grilled chicken, rice, beans, and queso', price: '$17' },
+      { name: 'Carne Asada Tacos', description: 'Three street-style tacos with grilled steak, onion, cilantro, and salsa verde', price: '$20' },
+      { name: 'Veggie Plate', description: 'Roasted vegetable burrito with seasoned black beans and Mexican rice', price: '$15' },
+      { name: 'Kids\' Meal', description: 'Cheese quesadilla or chicken taco with a side of rice and a drink', price: '$10' },
     ],
-    highlighted: false,
   },
   {
-    id: 'driver',
-    name: 'Driver',
+    id: 'sopapillas',
+    name: 'Sopapillas & Desserts',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <polygon points="12 6 12 12 16 14" />
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
-    description: 'Essential tools for drivers and field operators',
-    price_monthly: 8,
-    features: [
-      'Walk-around inspections',
-      'Defect logging',
-      'Timesheets',
-      'Mobile-first interface',
+    description: 'No visit to Casa Bonita is complete without sopapillas — our most beloved tradition since 1974.',
+    items: [
+      { name: 'Sopapillas', description: 'Pillowy fried dough dusted with cinnamon sugar, served with honey. Endless refills!', price: '$7' },
+      { name: 'Churros', description: 'Golden fried churros with cinnamon sugar and chocolate dipping sauce', price: '$8' },
+      { name: 'Flan', description: 'Traditional Mexican custard with caramel sauce', price: '$7' },
+      { name: 'Fried Ice Cream', description: 'Vanilla ice cream in a crispy shell with honey and whipped cream', price: '$9' },
     ],
-    highlighted: false,
+  },
+  {
+    id: 'drinks',
+    name: 'Drinks & Bar',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 3h6l1 9H8L9 3zm0 9a3 3 0 006 0M12 12v9m-3 0h6" />
+      </svg>
+    ),
+    description: 'From frozen margaritas to Mexican Coke, we have the perfect drink to go with the show.',
+    items: [
+      { name: 'Casa Margarita', description: 'House margarita with fresh lime, triple sec, and your choice of tequila — on the rocks or frozen', price: '$13' },
+      { name: 'Cadillac Margarita', description: 'Premium top-shelf margarita with Grand Marnier float', price: '$17' },
+      { name: 'Mexican Beer', description: 'Modelo, Corona, Dos Equis, or Pacifico', price: '$7' },
+      { name: 'Mexican Coke', description: 'Classic Coca-Cola made with real cane sugar, served in a glass bottle', price: '$5' },
+      { name: 'Horchata', description: 'Creamy rice and cinnamon drink, served cold', price: '$5' },
+    ],
   },
 ]
 
-export default function Pricing() {
-  const [annual, setAnnual] = useState(true)
-
-  const getPrice = (monthly: number) => {
-    if (annual) return Math.round(monthly * 0.8)
-    return monthly
-  }
-
-  const getYearlyTotal = (monthly: number) => {
-    return Math.round(monthly * 0.8 * 12)
-  }
-
+export default function MenuPage() {
   return (
     <>
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.container}>
-          <span className={styles.sectionTag}>Pricing</span>
-          <h1>Pay per seat, not per vehicle</h1>
+          <span className={styles.sectionTag}>Menu</span>
+          <h1>Food as legendary as the show</h1>
           <p className={styles.heroSubtitle}>
-            Only pay for the roles you need. Simple, scalable pricing built for real fleets.
+            Authentic Mexican cuisine crafted to complement an evening of wonder. Sopapillas, enchiladas, margaritas — and memories made at every table.
           </p>
-
-          <div className={styles.toggle}>
-            <button
-              className={`${styles.toggleBtn} ${!annual ? styles.active : ''}`}
-              onClick={() => { track('Billing Toggle', { period: 'monthly' }); setAnnual(false) }}
-            >
-              Monthly
-            </button>
-            <button
-              className={`${styles.toggleBtn} ${annual ? styles.active : ''}`}
-              onClick={() => { track('Billing Toggle', { period: 'annual' }); setAnnual(true) }}
-            >
-              Annual
-              <span className={styles.saveBadge}>Save 20%</span>
-            </button>
-          </div>
         </div>
       </section>
 
-      {/* Pricing Cards */}
+      {/* Menu Sections */}
       <section className={styles.pricing}>
         <div className={styles.container}>
-          <div className={styles.pricingGrid}>
-            {roles.map((role) => (
+          <div className={styles.pricingGrid} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+            {menuSections.map((section) => (
               <div
-                key={role.id}
+                key={section.id}
                 className={styles.pricingCard}
               >
                 <div className={styles.cardHeader}>
-                  <div className={styles.roleIcon}>{role.icon}</div>
-                  <h3>{role.name}</h3>
-                  <p>{role.description}</p>
+                  <div className={styles.roleIcon}>{section.icon}</div>
+                  <h3>{section.name}</h3>
+                  <p>{section.description}</p>
                 </div>
-                <div className={styles.priceBlock}>
-                  <span className={styles.currency}>&euro;</span>
-                  <span className={styles.price}>{getPrice(role.price_monthly)}</span>
-                  <span className={styles.period}>/user/month</span>
-                </div>
-                {annual && (
-                  <p className={styles.billedAnnually}>
-                    Billed annually (&euro;{getYearlyTotal(role.price_monthly)}/user/year)
-                  </p>
-                )}
-                {!annual && (
-                  <p className={styles.billedAnnually}>
-                    &euro;{role.price_monthly * 12}/user/year billed monthly
-                  </p>
-                )}
-                <ul className={styles.featureList}>
-                  {role.features.map((feature, i) => (
-                    <li key={i}>
+                <ul className={styles.featureList} style={{ marginTop: '1rem' }}>
+                  {section.items.map((item, i) => (
+                    <li key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem' }}>
                       <span className={styles.checkIcon}>
                         <svg viewBox="0 0 16 16" fill="none">
                           <path d="M3 8l4 4 6-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </span>
-                      {feature}
+                      <span style={{ flex: 1 }}>
+                        <strong>{item.name}</strong>
+                        <br />
+                        <span style={{ fontSize: '0.8em', opacity: 0.7 }}>{item.description}</span>
+                      </span>
+                      <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent)', flexShrink: 0 }}>{item.price}</span>
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/contact"
-                  className="btn btn-secondary"
-                  style={{ width: '100%' }}
-                  onClick={() => track('Pricing CTA Click', { role: role.name, period: annual ? 'annual' : 'monthly' })}
-                >
-                  Start Free Trial
-                </Link>
               </div>
             ))}
           </div>
@@ -180,14 +138,13 @@ export default function Pricing() {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={styles.trustIcon}>
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              <span>14-day free trial</span>
+              <span>Endless sopapillas</span>
             </div>
             <div className={styles.trustItem}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={styles.trustIcon}>
-                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" strokeLinecap="round" strokeLinejoin="round"/>
-                <polyline points="22 4 12 14.01 9 11.01" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 3v10m0 0c0 2-2 4-4 6m4-6c0 2 2 4 4 6M3 20h18" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              <span>No long-term contracts</span>
+              <span>Waterfall included with every meal</span>
             </div>
             <div className={styles.trustItem}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={styles.trustIcon}>
@@ -195,7 +152,7 @@ export default function Pricing() {
                 <circle cx="9" cy="7" r="4" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              <span>Volume discounts for 100+ users</span>
+              <span>Great for groups & families</span>
             </div>
           </div>
         </div>
@@ -205,31 +162,31 @@ export default function Pricing() {
       <section className={styles.faq}>
         <div className={styles.container}>
           <span className={styles.sectionTag}>FAQ</span>
-          <h2>Common questions</h2>
+          <h2>Good to know</h2>
           <div className={styles.faqGrid}>
             <div className={styles.faqItem}>
-              <h4>Is there a free trial?</h4>
-              <p>Yes! Every account starts with a 14-day free trial. No credit card required to get started.</p>
+              <h4>Do I need a reservation?</h4>
+              <p>Reservations are strongly recommended, especially on weekends and holidays. Walk-ins are welcome based on availability.</p>
             </div>
             <div className={styles.faqItem}>
-              <h4>How does per-seat pricing work?</h4>
-              <p>You only pay for the users you add. Each user is assigned a role (Admin, Technician, or Driver) and billed at that role&apos;s rate. Add or remove seats anytime.</p>
+              <h4>Is there a cover charge?</h4>
+              <p>No cover charge — your ticket to the show is simply purchasing food. The entertainment is included with your meal.</p>
             </div>
             <div className={styles.faqItem}>
-              <h4>Can I mix and match roles?</h4>
-              <p>Absolutely. Most fleets need a few Admins, a team of Technicians, and Drivers. You only pay for what you use.</p>
+              <h4>Are sopapillas really endless?</h4>
+              <p>Yes! Sopapillas are served continuously throughout your meal at no additional charge. It&apos;s one of our most beloved traditions.</p>
             </div>
             <div className={styles.faqItem}>
-              <h4>What payment methods do you accept?</h4>
-              <p>We accept all major credit cards and direct debit. Invoice billing is available for larger accounts.</p>
+              <h4>Is Casa Bonita good for kids?</h4>
+              <p>Absolutely. Casa Bonita was built for families. The cliff divers, caves, and entertainment are a magical experience for children of all ages.</p>
             </div>
             <div className={styles.faqItem}>
-              <h4>Is my data secure?</h4>
-              <p>Yes. We use bank-level encryption, daily backups, and are fully GDPR compliant. Your data is yours.</p>
+              <h4>Do you accommodate dietary restrictions?</h4>
+              <p>Yes. We have vegetarian options and can accommodate common dietary needs. Please note any restrictions when making your reservation.</p>
             </div>
             <div className={styles.faqItem}>
-              <h4>Can I cancel anytime?</h4>
-              <p>Yes, there are no long-term contracts. Cancel anytime and you won&apos;t be charged again.</p>
+              <h4>Where are you located?</h4>
+              <p>We&apos;re at 6715 W Colfax Ave in Lakewood, Colorado — just minutes from downtown Denver. Look for the iconic pink tower!</p>
             </div>
           </div>
         </div>
@@ -239,10 +196,10 @@ export default function Pricing() {
       <section className={styles.cta}>
         <div className={styles.container}>
           <div className={styles.ctaCard}>
-            <h2>Not sure how many seats you need?</h2>
-            <p>Let&apos;s talk. We&apos;ll help you find the right mix for your operation.</p>
-            <Link href="/contact" className="btn btn-primary" onClick={() => track('CTA Click', { label: 'Book a Demo', location: 'pricing-bottom' })}>
-              Book a Demo
+            <h2>Ready to join us for dinner?</h2>
+            <p>Reserve your table and experience Casa Bonita the way it was meant to be enjoyed.</p>
+            <Link href="/contact" className="btn btn-primary" onClick={() => track('CTA Click', { label: 'Reserve a Table', location: 'menu-bottom' })}>
+              Reserve a Table
             </Link>
           </div>
         </div>

@@ -8,8 +8,8 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
-    fleet_size: '',
+    party_size: '',
+    preferred_date: '',
     message: '',
   })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -17,7 +17,7 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('loading')
-    track('Form Submit', { form: 'contact', fleetSize: formData.fleet_size || 'not-specified' })
+    track('Form Submit', { form: 'reservations', partySize: formData.party_size || 'not-specified' })
 
     try {
       const res = await fetch('/api/contact', {
@@ -25,22 +25,22 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
-          form_source: 'contact',
+          form_source: 'reservations',
           submitted_at: new Date().toISOString(),
         }),
       })
 
       if (res.ok) {
         setStatus('success')
-        track('Form Success', { form: 'contact' })
-        setFormData({ name: '', email: '', company: '', fleet_size: '', message: '' })
+        track('Form Success', { form: 'reservations' })
+        setFormData({ name: '', email: '', party_size: '', preferred_date: '', message: '' })
       } else {
         setStatus('error')
-        track('Form Error', { form: 'contact', reason: 'server-error' })
+        track('Form Error', { form: 'reservations', reason: 'server-error' })
       }
     } catch {
       setStatus('error')
-      track('Form Error', { form: 'contact', reason: 'network-error' })
+      track('Form Error', { form: 'reservations', reason: 'network-error' })
     }
   }
 
@@ -49,24 +49,13 @@ export default function Contact() {
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.info}>
-            <span className={styles.sectionTag}>Contact</span>
-            <h1>Let&apos;s talk about your fleet</h1>
+            <span className={styles.sectionTag}>Reservations</span>
+            <h1>Join us for a legendary evening</h1>
             <p className={styles.subtitle}>
-              Whether you&apos;re ready for a demo or just exploring options, we&apos;re here to help.
+              Reserve your table at Casa Bonita. Waterfall, cliff divers, sopapillas, and memories included.
             </p>
 
             <div className={styles.contactMethods}>
-              <div className={styles.contactMethod}>
-                <div className={styles.methodIcon}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <div>
-                  <h4>Email</h4>
-                  <a href="mailto:info@obhsoftware.ie" onClick={() => track('Contact Method Click', { method: 'email', page: 'contact' })}>info@obhsoftware.ie</a>
-                </div>
-              </div>
               <div className={styles.contactMethod}>
                 <div className={styles.methodIcon}>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -75,7 +64,18 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4>Phone</h4>
-                  <a href="tel:+353868363332" onClick={() => track('Contact Method Click', { method: 'phone', page: 'contact' })}>+353 (86) 836 3332</a>
+                  <a href="tel:+13032325115" onClick={() => track('Contact Method Click', { method: 'phone', page: 'contact' })}>(303) 232-5115</a>
+                </div>
+              </div>
+              <div className={styles.contactMethod}>
+                <div className={styles.methodIcon}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Email</h4>
+                  <a href="mailto:info@casabonitadenver.com" onClick={() => track('Contact Method Click', { method: 'email', page: 'contact' })}>info@casabonitadenver.com</a>
                 </div>
               </div>
               <div className={styles.contactMethod}>
@@ -86,20 +86,20 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h4>Office</h4>
-                  <span>Ireland</span>
+                  <h4>Address</h4>
+                  <span>6715 W Colfax Ave, Lakewood, CO 80214</span>
                 </div>
               </div>
             </div>
 
             <div className={styles.responseTime}>
               <span className={styles.responseDot} />
-              <span>Typical response time: under 2 hours</span>
+              <span>Open Wednesday–Sunday, starting at 4pm</span>
             </div>
           </div>
 
           <div className={styles.formCard}>
-            <h3 className={styles.formTitle}>Book a Demo</h3>
+            <h3 className={styles.formTitle}>Make a Reservation</h3>
             {status === 'success' ? (
               <div className={styles.successMessage}>
                 <div className={styles.successIcon}>
@@ -107,8 +107,8 @@ export default function Contact() {
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <h3>Message sent!</h3>
-                <p>We&apos;ll be in touch within 24 hours. Check your inbox for confirmation.</p>
+                <h3>Request received!</h3>
+                <p>We&apos;ll be in touch within 24 hours to confirm your reservation. See you soon!</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className={styles.form}>
@@ -121,64 +121,63 @@ export default function Contact() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="John Smith"
+                      placeholder="Jane Smith"
                     />
                   </div>
                   <div className={styles.formGroup}>
-                    <label htmlFor="email">Work Email</label>
+                    <label htmlFor="email">Email</label>
                     <input
                       type="email"
                       id="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="john@company.com"
+                      placeholder="jane@example.com"
                     />
                   </div>
                 </div>
 
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}>
-                    <label htmlFor="company">Company</label>
-                    <input
-                      type="text"
-                      id="company"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder="Acme Transport"
-                    />
-                  </div>
-                  <div className={styles.formGroup}>
-                    <label htmlFor="fleet_size">Fleet Size</label>
+                    <label htmlFor="party_size">Party Size</label>
                     <select
-                      id="fleet_size"
-                      value={formData.fleet_size}
-                      onChange={(e) => setFormData({ ...formData, fleet_size: e.target.value })}
+                      id="party_size"
+                      value={formData.party_size}
+                      onChange={(e) => setFormData({ ...formData, party_size: e.target.value })}
                     >
                       <option value="">Select...</option>
-                      <option value="1-10">1-10 vehicles</option>
-                      <option value="11-50">11-50 vehicles</option>
-                      <option value="51-200">51-200 vehicles</option>
-                      <option value="200+">200+ vehicles</option>
+                      <option value="1-2">1–2 guests</option>
+                      <option value="3-5">3–5 guests</option>
+                      <option value="6-10">6–10 guests</option>
+                      <option value="11-20">11–20 guests</option>
+                      <option value="20+">Large party (20+)</option>
                     </select>
+                  </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="preferred_date">Preferred Date</label>
+                    <input
+                      type="date"
+                      id="preferred_date"
+                      value={formData.preferred_date}
+                      onChange={(e) => setFormData({ ...formData, preferred_date: e.target.value })}
+                    />
                   </div>
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label htmlFor="message">How can we help?</label>
+                  <label htmlFor="message">Special Requests</label>
                   <textarea
                     id="message"
                     rows={4}
-                    required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell us about your fleet and what challenges you're facing..."
+                    placeholder="Birthday celebration? Dietary restrictions? Let us know..."
                   />
                 </div>
 
                 {status === 'error' && (
                   <div className={styles.errorMessage}>
-                    Something went wrong. Please try again or email us directly.
+                    Something went wrong. Please try again or call us at (303) 232-5115.
                   </div>
                 )}
 
@@ -188,11 +187,11 @@ export default function Contact() {
                   style={{ width: '100%' }}
                   disabled={status === 'loading'}
                 >
-                  {status === 'loading' ? 'Sending...' : 'Send Message'}
+                  {status === 'loading' ? 'Sending...' : 'Request Reservation'}
                 </button>
 
                 <p className={styles.formNote}>
-                  By submitting, you agree to our privacy policy. We&apos;ll never share your info.
+                  By submitting, you agree to our privacy policy. We&apos;ll confirm your reservation by email.
                 </p>
               </form>
             )}

@@ -6,133 +6,126 @@ import styles from './Features.module.css'
 
 const features = [
   {
-    id: 'job-cards',
-    title: 'Digital Job Cards',
-    description: 'Replace paper-based workflows with structured digital job cards that capture every detail.',
+    id: 'waterfall',
+    title: 'The Legendary Waterfall',
+    description: 'The crown jewel of Casa Bonita — a thundering 30-foot indoor waterfall that you have to see to believe.',
     details: [
-      'Customizable job templates for different service types',
-      'Photo and document attachments with annotations',
-      'Digital signatures from technicians and customers',
-      'Real-time status updates and notifications',
-      'Full job history and audit trail',
+      'Towering 30-foot waterfall cascading inside the building',
+      'Fearless cliff divers perform daring leaps throughout the evening',
+      'Tropical scenery and lush surroundings transport you to another world',
+      'The roar of the waterfall fills the entire dining room',
+      'The most photographed spot in all of Colorado dining',
     ],
-    images: ['/app/job-detail.png', '/app/job-signoff.png'],
+    images: [],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 3v10m0 0c0 2-2 4-4 6m4-6c0 2 2 4 4 6M3 20h18" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
   },
   {
-    id: 'inspections',
-    title: 'Pre-Trip & Safety Inspections',
-    description: 'Ensure compliance with structured digital inspection checklists for every vehicle.',
+    id: 'cliff-divers',
+    title: 'Cliff Divers',
+    description: 'Our world-famous cliff divers are the heart of the Casa Bonita experience — performing daring, acrobatic dives from the rocky cliffs above the waterfall pool.',
     details: [
-      'Configurable inspection templates by vehicle type',
-      'Pass/fail scoring with defect flagging',
-      'Photo evidence for identified issues',
-      'Automatic escalation for critical defects',
-      'Compliance reporting and analytics',
+      'Trained professional cliff divers performing multiple shows per evening',
+      'Acrobatic dives from heights over 30 feet',
+      'Shows timed throughout your meal so you never miss one',
+      'The tradition stretches back to Casa Bonita\'s founding in 1974',
+      'A spectacle unlike anything else in the world',
     ],
-    images: ['/app/inspection.png', '/app/inspection-summary.png'],
+    images: [],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 2a3 3 0 110 6 3 3 0 010-6zm-1 6v5l-3 4m4-9v5l3 4" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
   },
   {
-    id: 'ai-invoices',
-    title: 'AI Invoice Processing',
-    description: 'Photograph invoices and let AI extract parts, costs, and supplier details automatically.',
+    id: 'food',
+    title: 'Authentic Mexican Cuisine',
+    description: 'From classic enchiladas to our legendary honey-drizzled sopapillas, every dish is crafted to complement an evening of wonder.',
     details: [
-      'OCR-powered text extraction from photos',
-      'Automatic line item parsing and categorization',
-      'Supplier database matching and creation',
-      'Cost allocation to jobs and vehicles',
-      'Export to accounting systems',
+      'Enchiladas, tacos, burritos, and combination platters',
+      'Freshly made sopapillas with honey — a Casa Bonita staple',
+      'Hearty queso, guacamole, and classic appetizers',
+      'Full bar with margaritas, Mexican beers, and cocktails',
+      'Kids\' menus and options for the whole family',
     ],
-    images: ['/app/ai-invoice-parser.png'],
+    images: [],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M13 10V3L4 14h7v7l9-11h-7z" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M3 6h18M3 12h18M3 18h18" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="12" cy="12" r="9" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
   },
   {
-    id: 'fleet-tracking',
-    title: 'Live Fleet Tracking',
-    description: 'Real-time visibility into your entire fleet with GPS integration and geofencing.',
+    id: 'cave',
+    title: "Black Bart's Cave",
+    description: 'Wander through the mysterious tunnels and caverns of Black Bart\'s Cave — an adventure within an adventure hidden deep inside Casa Bonita.',
     details: [
-      'Real-time GPS tracking and mapping',
-      'Geofence alerts for site entry/exit',
-      'Route history and playback',
-      'Driver behavior monitoring',
-      'Integration with major telematics providers',
+      'Sprawling cave tunnels wind through the heart of the building',
+      'Themed scenery and surprises lurk around every bend',
+      'A rite of passage for every Casa Bonita visitor',
+      'Secret passages and hidden rooms to discover',
+      'The cave that launched a thousand childhood memories',
     ],
-    images: ['/app/dashboard.png'],
+    images: [],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
   },
   {
-    id: 'analytics',
-    title: 'Fleet Analytics',
-    description: 'Deep insights into costs, maintenance trends, and operational efficiency.',
+    id: 'entertainment',
+    title: 'Live Entertainment',
+    description: 'The fun doesn\'t stop at the waterfall. Casa Bonita is packed with roving performers, live music, and shows that keep the magic alive all evening.',
     details: [
-      'Cost-per-kilometer breakdowns by vehicle',
-      'Maintenance trend analysis and predictions',
-      'Fuel consumption tracking and anomaly detection',
-      'Downtime analysis and optimization',
-      'Custom report builder and scheduling',
+      'Strolling mariachi bands serenading tables',
+      'Puppet shows and theatrical performances',
+      'Magicians and close-up magic throughout the venue',
+      'Themed skits and comedy acts',
+      'Entertainment scheduled throughout the entire evening',
     ],
-    images: ['/app/ai-chat.png', '/app/timesheet.png'],
+    images: [],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
   },
   {
-    id: 'compliance',
-    title: 'Compliance Management',
-    description: 'Stay audit-ready with automated scheduling and documentation.',
+    id: 'legacy',
+    title: 'A Colorado Icon',
+    description: 'Opened in 1974 and lovingly restored by South Park creators Matt Stone and Trey Parker, Casa Bonita is more than a restaurant — it\'s Colorado history.',
     details: [
-      'NCT/CVRT expiry tracking and alerts',
-      'Registration and license management',
-      'Automated compliance checklists',
-      'Document storage and versioning',
-      'Audit trail and compliance reporting',
+      'Founded in 1974 — over 50 years of Colorado tradition',
+      'Fully restored and reopened in June 2023',
+      'Owned and preserved by Matt Stone & Trey Parker',
+      'Famously featured in the South Park episode "Casa Bonita"',
+      'The iconic pink tower has been a Denver landmark for generations',
     ],
-    images: ['/app/defects.png', '/app/inspection-fail.png'],
+    images: [],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
   },
 ]
 
-interface FeaturesContentProps {
-  enabledIds: string[]
-}
-
-export default function FeaturesContent({ enabledIds }: FeaturesContentProps) {
-  const enabledSet = new Set(enabledIds)
-  const visibleFeatures = features.filter(f => enabledSet.has(f.id))
-
+export default function FeaturesContent() {
   return (
     <>
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.container}>
-          <span className={styles.sectionTag}>Features</span>
-          <h1>Built for the workshop floor.</h1>
+          <span className={styles.sectionTag}>The Experience</span>
+          <h1>Step inside the legend.</h1>
           <p className={styles.heroSubtitle}>
-            Every feature designed with input from fleet operators, workshop managers, and mechanics who live this every day.
+            Casa Bonita is not just a restaurant — it&apos;s an entire world. From the roaring waterfall to the winding caves, every corner holds a new discovery.
           </p>
         </div>
       </section>
@@ -140,7 +133,7 @@ export default function FeaturesContent({ enabledIds }: FeaturesContentProps) {
       {/* Features List */}
       <section className={styles.features}>
         <div className={styles.container}>
-          {visibleFeatures.map((feature, index) => (
+          {features.map((feature, index) => (
             <div
               key={feature.id}
               className={`${styles.featureRow} ${index % 2 === 1 ? styles.reversed : ''}`}
@@ -163,19 +156,9 @@ export default function FeaturesContent({ enabledIds }: FeaturesContentProps) {
                 </ul>
               </div>
               <div className={styles.featureVisual}>
-                {feature.images.length > 0 ? (
-                  <div className={styles.phoneShowcase}>
-                    {feature.images.map((img, i) => (
-                      <div key={i} className={styles.phoneFrame}>
-                        <img src={img} alt={`${feature.title} screenshot`} />
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className={styles.visualPlaceholder}>
-                    <div className={styles.visualIcon}>{feature.icon}</div>
-                  </div>
-                )}
+                <div className={styles.visualPlaceholder}>
+                  <div className={styles.visualIcon}>{feature.icon}</div>
+                </div>
               </div>
             </div>
           ))}
@@ -186,14 +169,14 @@ export default function FeaturesContent({ enabledIds }: FeaturesContentProps) {
       <section className={styles.cta}>
         <div className={styles.container}>
           <div className={styles.ctaCard}>
-            <h2>See it in action</h2>
-            <p>Book a personalized demo tailored to your fleet size and needs.</p>
+            <h2>Ready to experience it yourself?</h2>
+            <p>Reserve your table and make a night you&apos;ll never forget.</p>
             <Link
               href="/contact"
               className="btn btn-primary"
-              onClick={() => track('CTA Click', { label: 'Book Demo', location: 'features-bottom' })}
+              onClick={() => track('CTA Click', { label: 'Reserve a Table', location: 'experience-bottom' })}
             >
-              Book Demo
+              Reserve a Table
             </Link>
           </div>
         </div>

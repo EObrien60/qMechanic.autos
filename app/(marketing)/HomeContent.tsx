@@ -6,14 +6,14 @@ import styles from './Home.module.css'
 
 const homeFeatures = [
   {
-    id: 'job-cards',
-    title: 'Digital Job Cards',
+    id: 'waterfall',
+    title: 'The Waterfall',
     description:
-      'Replace paper with structured digital workflows. Capture photos, signatures, and notes in real-time.',
+      'Our legendary 30-foot indoor waterfall is the heart of Casa Bonita. Watch fearless cliff divers leap from the rocks above into the pool below.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path
-          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+          d="M12 3v10m0 0c0 2-2 4-4 6m4-6c0 2 2 4 4 6M3 20h18"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -21,14 +21,14 @@ const homeFeatures = [
     ),
   },
   {
-    id: 'inspections',
-    title: 'Compliance Tracking',
+    id: 'cliff-divers',
+    title: 'Cliff Divers',
     description:
-      'Automated NCT/CVRT scheduling, inspection checklists, and audit-ready documentation.',
+      'Our world-famous cliff divers perform breathtaking dives throughout the evening. Every meal comes with a show you\'ll never forget.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path
-          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+          d="M12 2a3 3 0 110 6 3 3 0 010-6zm0 6v4l4 4m-4-4l-4 4m4 0v6"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -36,41 +36,30 @@ const homeFeatures = [
     ),
   },
   {
-    id: 'ai-invoices',
-    title: 'AI Invoice Capture',
+    id: 'food',
+    title: 'Mexican Cuisine',
     description:
-      'Photograph invoices and let AI extract parts, costs, and supplier details automatically.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M13 10V3L4 14h7v7l9-11h-7z" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  {
-    id: 'fleet-tracking',
-    title: 'Live Fleet Tracking',
-    description:
-      'Real-time GPS integration, geofencing alerts, and route optimization for your entire fleet.',
+      'Savor authentic Mexican dishes — enchiladas, tacos, burritos, and our legendary sopapillas drizzled with honey. Food that\'s as memorable as the show.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path
-          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+          d="M12 6v6m0 0v6m0-6h6m-6 0H6"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="12" cy="12" r="10" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
   {
-    id: 'analytics',
-    title: 'Fleet Analytics',
+    id: 'cave',
+    title: "Black Bart's Cave",
     description:
-      'Cost-per-km breakdowns, maintenance trends, and predictive insights across your operation.',
+      'Explore the mysterious caverns of Black Bart\'s Cave. A wandering adventure through tunnels, passages, and surprises at every turn.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path
-          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -78,14 +67,29 @@ const homeFeatures = [
     ),
   },
   {
-    id: 'compliance',
-    title: 'Secure & Compliant',
+    id: 'entertainment',
+    title: 'Live Entertainment',
     description:
-      'Role-based access, encrypted data, and full audit trails. GDPR and industry compliant.',
+      'Puppet shows, magicians, strolling mariachi bands, and more. The entertainment never stops at Casa Bonita — it\'s a full evening of wonder.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path
-          d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+          d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    id: 'legacy',
+    title: 'A Colorado Legend',
+    description:
+      'Open since 1974, lovingly restored by Matt Stone & Trey Parker. Casa Bonita is more than a restaurant — it\'s a Colorado tradition.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path
+          d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -94,14 +98,7 @@ const homeFeatures = [
   },
 ]
 
-interface HomeContentProps {
-  enabledIds: string[]
-}
-
-export default function HomeContent({ enabledIds }: HomeContentProps) {
-  const enabledSet = new Set(enabledIds)
-  const visibleFeatures = homeFeatures.filter(f => enabledSet.has(f.id))
-
+export default function HomeContent() {
   return (
     <>
       {/* Hero Section */}
@@ -111,23 +108,23 @@ export default function HomeContent({ enabledIds }: HomeContentProps) {
           <div className={styles.heroContent}>
             <div className={styles.badge}>
               <span className={styles.badgeDot} />
-              <span className="mono">Now available in Ireland &amp; the UK</span>
+              <span className="mono">Now Open in Lakewood, Colorado</span>
             </div>
             <h1 className={styles.title}>
-              Fleet Management.<br />
-              <span className={styles.accent}>Precision Engineered.</span>
+              Casa Bonita.<br />
+              <span className={styles.accent}>The Legend Lives On.</span>
             </h1>
             <p className={styles.subtitle}>
-              Digital job cards, automated compliance tracking, and AI-powered invoice
-              processing. Replace paper with a system built for modern workshops.
+              Denver&apos;s most iconic dining and entertainment destination. Indoor waterfall, fearless cliff divers,
+              authentic Mexican cuisine, and memories that last a lifetime.
             </p>
             <div className={styles.heroCta}>
               <Link
                 href="/contact"
                 className="btn btn-primary"
-                onClick={() => track('CTA Click', { label: 'Book a Demo', location: 'hero' })}
+                onClick={() => track('CTA Click', { label: 'Reserve a Table', location: 'hero' })}
               >
-                Book a Demo
+                Reserve a Table
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path
                     d="M3 8h10m0 0L9 4m4 4L9 12"
@@ -141,46 +138,35 @@ export default function HomeContent({ enabledIds }: HomeContentProps) {
               <Link
                 href="/features"
                 className="btn btn-secondary"
-                onClick={() => track('CTA Click', { label: 'Explore Features', location: 'hero' })}
+                onClick={() => track('CTA Click', { label: 'Explore Experience', location: 'hero' })}
               >
-                Explore Features
+                Explore the Experience
               </Link>
             </div>
-            <div className={styles.storeBadges}>
-              <a
-                href="https://apps.apple.com/ie/app/qmechanic/id6757266644"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.appStoreBadge}
-                onClick={() => track('App Store Click', { location: 'hero' })}
-              >
-                <img src="/app-store-badge.svg" alt="Download on the App Store" />
-              </a>
-              <a
-                href="https://play.google.com/store/apps/details?id=ie.quantumharbour.qmechanic"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.appStoreBadge}
-                onClick={() => track('Google Play Click', { location: 'hero' })}
-              >
-                <img src="/google-play-badge.svg" alt="Get it on Google Play" />
-              </a>
+            <div className={styles.heroMeta} style={{ marginTop: '1.5rem', display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+              <span className="mono" style={{ fontSize: '0.8rem', opacity: 0.6 }}>📍 6715 W Colfax Ave, Lakewood CO</span>
+              <span className="mono" style={{ fontSize: '0.8rem', opacity: 0.6 }}>⏰ Wed–Sun, starting at 4pm</span>
             </div>
-            <a href="https://obhsoftware.ie" target="_blank" rel="noopener noreferrer" className={styles.heroObh}>
-              <img src="/obhlogoorange.png" alt="OBH" className={styles.heroObhLogo} />
-              <span className={styles.heroObhText}>An OBH Product</span>
-            </a>
           </div>
           <div className={styles.heroVisual}>
             <div className={styles.appShowcase}>
-              <div className={styles.phoneFrame}>
-                <img src="/app/inspection.png" alt="Vehicle inspection" />
+              <div className={styles.phoneFrame} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(34,211,238,0.05)', border: '1px solid rgba(34,211,238,0.15)', borderRadius: '1rem', padding: '2rem', aspectRatio: '9/16', maxWidth: '180px' }}>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🌊</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--accent)', fontFamily: 'var(--font-mono)' }}>The Waterfall</div>
+                </div>
               </div>
-              <div className={styles.phoneFrame + ' ' + styles.phoneCenter}>
-                <img src="/app/dashboard.png" alt="qMechanic dashboard" />
+              <div className={`${styles.phoneFrame} ${styles.phoneCenter}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(34,211,238,0.08)', border: '1px solid rgba(34,211,238,0.2)', borderRadius: '1rem', padding: '2rem', aspectRatio: '9/16', maxWidth: '200px' }}>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ fontSize: '3.5rem', marginBottom: '0.5rem' }}>🌮</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--accent)', fontFamily: 'var(--font-mono)' }}>Mexican Cuisine</div>
+                </div>
               </div>
-              <div className={styles.phoneFrame}>
-                <img src="/app/job-detail.png" alt="Job card detail" />
+              <div className={styles.phoneFrame} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(34,211,238,0.05)', border: '1px solid rgba(34,211,238,0.15)', borderRadius: '1rem', padding: '2rem', aspectRatio: '9/16', maxWidth: '180px' }}>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>🎭</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--accent)', fontFamily: 'var(--font-mono)' }}>Entertainment</div>
+                </div>
               </div>
             </div>
           </div>
@@ -191,11 +177,11 @@ export default function HomeContent({ enabledIds }: HomeContentProps) {
       <section className={styles.features}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <span className={styles.sectionTag}>Core Capabilities</span>
-            <h2>Everything your fleet needs.<br />Nothing it doesn&apos;t.</h2>
+            <span className={styles.sectionTag}>What Awaits You</span>
+            <h2>More than a restaurant.<br />An entire world to explore.</h2>
           </div>
           <div className={styles.featureGrid}>
-            {visibleFeatures.map(feature => (
+            {homeFeatures.map(feature => (
               <div key={feature.id} className={styles.featureCard}>
                 <div className={styles.featureIcon}>{feature.icon}</div>
                 <h3>{feature.title}</h3>
@@ -211,11 +197,11 @@ export default function HomeContent({ enabledIds }: HomeContentProps) {
         <div className={styles.container}>
           <div className={styles.proofGrid}>
             <div className={styles.proofContent}>
-              <span className={styles.sectionTag}>Why qMechanic</span>
-              <h2>Built for operators who demand precision.</h2>
+              <span className={styles.sectionTag}>The Casa Bonita Experience</span>
+              <h2>Where every dinner becomes a story worth telling.</h2>
               <blockquote className={styles.quote}>
-                &ldquo;Go paperless, stay compliant, and get full visibility across your fleet
-                operations &mdash; all from one platform built for the workshop floor.&rdquo;
+                &ldquo;Casa Bonita is not just a restaurant — it&apos;s a place where you walk in and leave the real world
+                behind. The waterfall, the divers, the sopapillas... there is truly nothing else like it on Earth.&rdquo;
               </blockquote>
             </div>
           </div>
@@ -227,18 +213,18 @@ export default function HomeContent({ enabledIds }: HomeContentProps) {
         <div className={styles.container}>
           <div className={styles.ctaCard}>
             <div className={styles.ctaContent}>
-              <h2>Ready to modernize your fleet operations?</h2>
-              <p>Book a personalized demo and see how qMechanic can transform your workshop.</p>
+              <h2>Ready for an unforgettable evening?</h2>
+              <p>Reserve your table at Casa Bonita and experience the legend for yourself.</p>
             </div>
             <div className={styles.ctaActions}>
               <Link
                 href="/contact"
                 className="btn btn-primary"
                 onClick={() =>
-                  track('CTA Click', { label: 'Book Demo', location: 'home-bottom' })
+                  track('CTA Click', { label: 'Reserve a Table', location: 'home-bottom' })
                 }
               >
-                Book Demo
+                Reserve a Table
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path
                     d="M3 8h10m0 0L9 4m4 4L9 12"
@@ -249,13 +235,9 @@ export default function HomeContent({ enabledIds }: HomeContentProps) {
                   />
                 </svg>
               </Link>
-              <span className={styles.ctaNote}>Free 14-day trial &bull; No credit card required</span>
+              <span className={styles.ctaNote}>Open Wednesday–Sunday &bull; Lakewood, Colorado</span>
             </div>
           </div>
-          <a href="https://obhsoftware.ie" target="_blank" rel="noopener noreferrer" className={styles.obhBrand}>
-            <img src="/obhlogoorange.png" alt="OBH" className={styles.obhLogo} />
-            <span className={styles.obhText}>An OBH Product</span>
-          </a>
         </div>
       </section>
     </>

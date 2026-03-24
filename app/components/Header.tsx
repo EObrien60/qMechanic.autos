@@ -12,18 +12,16 @@ export default function Header() {
 
   const navItems = [
     { path: '/', label: 'Home' },
-    { path: '/features', label: 'Features' },
-    { path: '/pricing', label: 'Pricing' },
-    { path: '/contact', label: 'Contact' },
-    { path: '/support', label: 'Support' },
+    { path: '/features', label: 'Experience' },
+    { path: '/pricing', label: 'Menu' },
+    { path: '/contact', label: 'Reservations' },
   ]
 
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          <img src="/qmlogo_darkmode.png" alt="qMechanic" className={styles.logoImg} />
-          <span className={styles.logoText}>qMechanic</span>
+          <span className={styles.logoText}>Casa Bonita</span>
         </Link>
 
         <nav className={`${styles.nav} ${mobileOpen ? styles.navOpen : ''}`}>
@@ -43,11 +41,8 @@ export default function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <Link href="/launch" className={styles.loginLink} onClick={() => track('CTA Click', { label: 'Sign In', location: 'header' })}>
-            Sign In
-          </Link>
-          <Link href="/contact" className="btn btn-primary" onClick={() => track('CTA Click', { label: 'Book Demo', location: 'header' })}>
-            Book Demo
+          <Link href="/contact" className="btn btn-primary" onClick={() => track('CTA Click', { label: 'Reserve a Table', location: 'header' })}>
+            Reserve a Table
           </Link>
         </div>
 
