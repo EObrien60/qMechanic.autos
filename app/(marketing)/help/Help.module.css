@@ -1,0 +1,235 @@
+.help {
+  padding: var(--space-16) 0;
+}
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.articleContainer {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* Hero */
+.hero {
+  margin-bottom: var(--space-12);
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-4);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--color-text-tertiary);
+  max-width: 60ch;
+}
+
+/* Categories */
+.category {
+  margin-bottom: var(--space-12);
+}
+
+.categoryHead h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.categoryHead p {
+  font-size: 0.9375rem;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-6);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-5);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-secondary);
+  text-decoration: none;
+  transition: border-color var(--transition-fast) ease,
+    transform var(--transition-fast) ease;
+}
+
+.card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.card p {
+  font-size: 0.9375rem;
+  color: var(--color-text-tertiary);
+  flex: 1;
+}
+
+.cardLink {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+/* Article */
+.breadcrumb {
+  font-size: 0.8125rem;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-6);
+}
+
+.breadcrumb a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.articleHead {
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.articleHead h1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.forWho {
+  margin-top: var(--space-3);
+  font-size: 0.8125rem;
+  color: var(--color-text-tertiary);
+}
+
+.section {
+  margin-bottom: var(--space-10);
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.sectionIntro {
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.steps {
+  margin: 0 0 var(--space-4);
+  padding-left: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.steps li {
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  padding-left: var(--space-2);
+}
+
+.note {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin: var(--space-4) 0 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  font-size: 0.9375rem;
+  color: var(--color-text-primary);
+}
+
+.noteLabel {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+}
+
+.articleFooter {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-12);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.backLink,
+.supportLink {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+/* -----------------------------------------------------------------------------
+   Screenshots
+   Captured from the admin console against a demo dataset. Sized for the 760px
+   article column; sources are 1440px wide so they stay sharp on retina.
+----------------------------------------------------------------------------- */
+.shot {
+  margin: var(--space-5) 0 0;
+}
+
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-elevated);
+}
+
+.shot figcaption {
+  margin-top: var(--space-2);
+  font-size: 0.8125rem;
+  color: var(--color-text-tertiary);
+  line-height: 1.5;
+}
