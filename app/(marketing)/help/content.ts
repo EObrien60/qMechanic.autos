@@ -336,7 +336,7 @@ const ADMIN_ARTICLES: KbArticle[] = [
         steps: [
           'Name it plainly — “Daily Walkaround Check - Tractor Unit” beats “Template 1”.',
           'Set Repeat period (days) to 1 for a daily check, 42 for a six-weekly inspection.',
-          'Tick “Photo evidence required” if you want the inspector to attach a photo before they can finish.',
+          'Add a Description if the name alone is not obvious — inspectors see it under the template name when they pick a check.',
           'Under Action Items, select “Add Item” and write one line per physical check.',
           'Choose the Input Type for each item (see the note below), then Save.',
         ],
@@ -437,13 +437,10 @@ const ADMIN_ARTICLES: KbArticle[] = [
         ],
         steps: [
           'Name — what inspectors see in the app. Make it specific.',
-          'Repeat period (days) — how often this check is due. Drives the schedule.',
-          'Photo evidence required — forces a photo before the inspection can be submitted.',
-          'Job card required — automatically raises a job card when this inspection is completed.',
-          'Fixed job hours / Fixed job price — pre-fills the job card raised from this inspection.',
-          'Instruction line — the text that appears on that job card.',
-          'Odometer reading — prompts the inspector for a mileage reading.',
-          'Restricted user types — which user types are offered this checklist.',
+          'Repeat period (days) — how often this check is due. Drives the schedule and the “next due” date.',
+          'Description — a short line shown under the template name when an inspector picks a check.',
+          'Restrict to user types — tick the user types that should be offered this checklist. Leave all unchecked and everybody sees it.',
+          'Machine type (and subtype) — which kind of vehicle this checklist applies to.',
         ],
       },
       {
@@ -476,26 +473,6 @@ const ADMIN_ARTICLES: KbArticle[] = [
           'If a check changes fundamentally, consider building a new template and retiring the old one rather than editing it, so the two sets of results stay comparable.',
         ],
       },
-      {
-        heading: 'Making an inspection raise a job card automatically',
-        intro:
-          'For workshop inspections — a six-weekly safety inspection, say — you usually want the paperwork to exist the moment the inspection is done.',
-        steps: [
-          'Open the template and tick “Job card required”.',
-          'Set Fixed job hours and Fixed job price if the work is normally a known quantity.',
-          'Put the standing instruction in Instruction line, e.g. “Rectify defects found at six-weekly safety inspection”.',
-          'Save. From now on, completing this inspection creates a linked job card.',
-        ],
-      },
-    ],
-  },
-  {
-    slug: 'admin-inspection-results',
-    audience: 'admin',
-    title: 'Reviewing inspections, defects and follow-up',
-    summary: 'Read completed checks, act on the faults they surface, and prove your daily compliance.',
-    forWho: 'Anyone responsible for making sure checks are done and faults get fixed.',
-    sections: [
       {
         heading: 'Completed inspections',
         intro:
