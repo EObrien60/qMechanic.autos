@@ -50,6 +50,7 @@ export default function Footer() {
           <div className={styles.links}>
             <h4>Company</h4>
             <Link href="/contact" onClick={() => track('Footer Link Click', { label: 'Contact', section: 'company' })}>Contact</Link>
+            <Link href="/help" onClick={() => track('Footer Link Click', { label: 'Help', section: 'company' })}>Help &amp; Guides</Link>
             <Link href="/support" onClick={() => track('Footer Link Click', { label: 'Support', section: 'company' })}>Support</Link>
             <Link href="/privacy" onClick={() => track('Footer Link Click', { label: 'Privacy Policy', section: 'company' })}>Privacy Policy</Link>
             <Link href="/terms" onClick={() => track('Footer Link Click', { label: 'Terms of Service', section: 'company' })}>Terms of Service</Link>
