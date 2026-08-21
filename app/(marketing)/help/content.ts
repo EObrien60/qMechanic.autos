@@ -13,6 +13,8 @@ export interface KbShot {
   alt: string;
   /** Shown under the image to explain what the reader is looking at. */
   caption?: string;
+  /** Phone-shaped capture. Rendered narrow and centred rather than full width. */
+  phone?: boolean;
 }
 
 export interface KbSection {
@@ -1121,3 +1123,27 @@ export const articlesFor = (audience: Audience): KbArticle[] =>
 
 export const getArticle = (slug: string): KbArticle | undefined =>
   ARTICLES.find((a) => a.slug === slug);
+
+/** Stable anchor id for a section heading, so headings are deep-linkable. */
+export const sectionId = (heading: string): string =>
+  heading
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+/** Previous/next article within the same audience, for sequential reading. */
+export const neighbours = (
+  slug: string,
+): { prev?: KbArticle; next?: KbArticle } => {
+  const article = getArticle(slug);
+  if (!article) return {};
+  const siblings = articlesFor(article.audience);
+  const i = siblings.findIndex((a) => a.slug === slug);
+  return { prev: siblings[i - 1], next: siblings[i + 1] };
+};
+
+/** Flattened text used by the index search box. */
+export const searchIndex = (a: KbArticle): string =>
+  [a.title, a.summary, a.forWho ?? '', ...a.sections.map((s) => s.heading)]
+    .join(' ')
+    .toLowerCase();
